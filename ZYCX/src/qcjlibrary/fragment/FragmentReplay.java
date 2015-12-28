@@ -1,6 +1,5 @@
 package qcjlibrary.fragment;
 
-<<<<<<< HEAD
 import qcjlibrary.activity.RequestDetailResponceActivity;
 import qcjlibrary.adapter.ReplayAdapter;
 import qcjlibrary.fragment.base.BaseFragment;
@@ -11,12 +10,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-=======
-import qcjlibrary.adapter.ReplayAdapter;
-import qcjlibrary.fragment.base.BaseFragment;
-import qcjlibrary.listview.base.CommonListView;
-import android.view.View;
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 
 import com.zhiyicx.zycx.R;
 
@@ -47,7 +40,7 @@ public class FragmentReplay extends BaseFragment {
 		mCommonListView.setDividerHeight(5);
 		mAdapter = new ReplayAdapter(this, null);
 		mCommonListView.setAdapter(mAdapter);
-<<<<<<< HEAD
+
 		mCommonListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -65,8 +58,7 @@ public class FragmentReplay extends BaseFragment {
 				}
 			}
 		});
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 	}
 
 	@Override

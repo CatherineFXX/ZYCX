@@ -2,10 +2,9 @@ package qcjlibrary.activity;
 
 import qcjlibrary.activity.base.BaseActivity;
 import qcjlibrary.adapter.MePerioAdapter;
-<<<<<<< HEAD
+
 import qcjlibrary.adapter.base.BAdapter;
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 import qcjlibrary.listview.base.CommonListView;
 import android.view.View;
 
@@ -18,11 +17,8 @@ import com.zhiyicx.zycx.R;
 
 public class MePerioActivity extends BaseActivity {
 	private CommonListView mCommonListView;
-<<<<<<< HEAD
+
 	private BAdapter mAdapter;
-=======
-	private MePerioAdapter mAdapter;
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 
 	@Override
 	public void onClick(View v) {
@@ -31,11 +27,9 @@ public class MePerioActivity extends BaseActivity {
 
 	@Override
 	public String setCenterTitle() {
-<<<<<<< HEAD
+
 		return "我的期刊";
-=======
-		return "专家提问";
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 	}
 
 	@Override

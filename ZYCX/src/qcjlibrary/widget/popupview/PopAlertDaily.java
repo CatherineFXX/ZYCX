@@ -1,5 +1,7 @@
 package qcjlibrary.widget.popupview;
 
+import java.util.ArrayList;
+
 import com.umeng.socialize.utils.Log;
 import com.zhiyicx.zycx.R;
 
@@ -59,7 +61,6 @@ public class PopAlertDaily extends PopView {
 
 	@Override
 	public void initPopData(Object object) {
-		
 	}
 
 	@Override
@@ -70,9 +71,11 @@ public class PopAlertDaily extends PopView {
 			
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				//记录当前选择的item的id
 				index = checkedId;
 			}
 		});
+		
 		
 		//监听确认按钮
 		btn_alert_check.setOnClickListener(new OnClickListener() {
@@ -81,30 +84,20 @@ public class PopAlertDaily extends PopView {
 			public void onClick(View v) {
 				/** 选中的提醒频率**/
 				String checkItem = "";
-				switch (index) {
-				case 2131362498:
+				if(index == rb_alert_everyday.getId()){
 					checkItem = "每天";
-					break;
-				case 2131362499:
+				} else if(index == rb_alert_two.getId()){
 					checkItem = "每2天";
-					break;
-				case 2131362500:
+				} else if(index == rb_alert_three.getId()){
 					checkItem = "每3天";
-					break;
-				case 2131362501:
+				} else if(index == rb_alert_four.getId()){
 					checkItem = "每4天";
-					break;
-				case 2131362502:
+				} else if(index == rb_alert_five.getId()){
 					checkItem = "每5天";
-					break;
-				case 2131362503:
+				} else if(index == rb_alert_sex.getId()){
 					checkItem = "每6天";
-					break;
-				case 2131362504:
+				} else if(index == rb_alert_seven.getId()){
 					checkItem = "每7天";
-					break;
-				default:
-					break;
 				}
 				ModelPop dailyData = new ModelPop();
 				dailyData.setType(Config.TYPE_DAILY);

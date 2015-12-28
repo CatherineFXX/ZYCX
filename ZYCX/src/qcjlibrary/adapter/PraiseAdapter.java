@@ -6,15 +6,12 @@ import qcjlibrary.activity.base.BaseActivity;
 import qcjlibrary.adapter.base.BAdapter;
 import qcjlibrary.adapter.base.ViewHolder;
 import qcjlibrary.fragment.base.BaseFragment;
-<<<<<<< HEAD
+
 import qcjlibrary.model.ModelNotifyDig;
 import qcjlibrary.model.base.Model;
 import qcjlibrary.response.DataAnalyze;
 import qcjlibrary.widget.RoundImageView;
-=======
-import qcjlibrary.img.RoundImageView;
-import qcjlibrary.model.base.Model;
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -55,7 +52,7 @@ public class PraiseAdapter extends BAdapter {
 
 	private void bindDataToView(ViewHolder holder, int position) {
 		if (holder != null) {
-<<<<<<< HEAD
+
 			ModelNotifyDig dig = (ModelNotifyDig) mList.get(position);
 			if (dig != null) {
 				mApp.displayImage(dig.getUserface(), holder.riv_msg_icon);
@@ -64,8 +61,7 @@ public class PraiseAdapter extends BAdapter {
 				holder.tv_other_replay.setText(dig.getMyname() + ":"
 						+ dig.getFeed_data());
 			}
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 		}
 	}
 
@@ -90,20 +86,16 @@ public class PraiseAdapter extends BAdapter {
 
 	@Override
 	public void refreshNew() {
-<<<<<<< HEAD
+
 		sendRequest(mApp.getNotifyImpl().digglist(null), ModelNotifyDig.class,
 				REQUEST_GET, REFRESH_NEW);
-=======
-		sendRequest(null, null, 1, 1);
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 	}
 
 	@Override
 	public void refreshHeader(Model item, int count) {
-<<<<<<< HEAD
-=======
-		sendRequest(null, null, 1, 1);
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
+
 	}
 
 	@Override
@@ -113,7 +105,7 @@ public class PraiseAdapter extends BAdapter {
 
 	@Override
 	public int getTheCacheType() {
-<<<<<<< HEAD
+
 		return 0;
 	}
 
@@ -127,10 +119,5 @@ public class PraiseAdapter extends BAdapter {
 		return object;
 	}
 
-=======
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 }

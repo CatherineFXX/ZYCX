@@ -7,6 +7,8 @@ import java.util.List;
 import qcjlibrary.model.ModelAddCase;
 import qcjlibrary.model.ModelAddHistoryCase;
 import qcjlibrary.model.ModelAddNowCase;
+import qcjlibrary.model.ModelCasePresent;
+import qcjlibrary.model.ModelCaseRecord;
 import qcjlibrary.model.ModelExperience;
 import qcjlibrary.model.ModelExperienceDetailItem1;
 import qcjlibrary.model.ModelExperiencePostDetailItem;
@@ -22,10 +24,12 @@ import qcjlibrary.model.ModelRequestAnswerComom;
 import qcjlibrary.model.ModelRequestAsk;
 import qcjlibrary.model.ModelRequestFlag;
 import qcjlibrary.model.ModelRequestItem;
+import qcjlibrary.model.ModelRequestMyAsk;
 import qcjlibrary.model.ModelRequestSearch;
 import qcjlibrary.model.ModelUser;
 import qcjlibrary.model.ModelZiXunDetail;
 import qcjlibrary.model.base.Model;
+
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -35,7 +39,6 @@ import com.zhiyicx.zycx.util.PreferenceUtil;
 
 /**
  * author：qiuchunjia time：下午4:34:59 类描述：这个类是实现对请求的数据的封装
- *
  */
 
 public class api {
@@ -51,7 +54,7 @@ public class api {
 
 	/**
 	 * 添加token到params
-	 * 
+	 *
 	 * @param params
 	 * @return
 	 */
@@ -66,9 +69,8 @@ public class api {
 
 	/**
 	 * token的测试数据
-	 * 
+	 *
 	 * @param params
-	 * 
 	 * @return
 	 */
 	public static RequestParams getTestToken(RequestParams params) {
@@ -79,7 +81,7 @@ public class api {
 
 	/**
 	 * 分页
-	 * 
+	 *
 	 * @param params
 	 * @param model
 	 * @return
@@ -131,9 +133,30 @@ public class api {
 				if (detail.getMaxid() != null && !detail.getMaxid().equals("")) {
 					params.add(MAXID, detail.getMaxid());
 				}
-				return getToken(params);
+				return getTestToken(params);
 			}
 			return null;
+		}
+
+		public RequestParams doPraise(ModelZiXunDetail detail) {
+			if (detail != null) {
+				RequestParams params = new RequestParams();
+				params.add(APP, APPNAME);
+				params.add(MOD, NEWS);
+				params.add(ACT, DOPRAISE);
+				params.add(AID, detail.getId());
+				return getTestToken(params);
+			}
+			return null;
+		}
+
+		public RequestParams appBanner() {
+			RequestParams params = new RequestParams();
+			params.add(APP, API);
+			params.add(MOD, SYSTEM);
+			params.add(ACT, APP_BANNER);
+			Log.i("appBanner", params.toString());
+			return getTestToken(params);
 		}
 	}
 
@@ -450,6 +473,29 @@ public class api {
 			}
 			return null;
 		}
+
+		public RequestParams myQuestion(ModelRequestMyAsk myAsk) {
+			RequestParams params = new RequestParams();
+			params.add(APP, API);
+			params.add(MOD, PERSONAGE);
+			params.add(ACT, MYQUESTION);
+			getChangePage(params, myAsk);
+			return getTestToken(params);
+
+		}
+
+		public RequestParams evaQuestion(ModelRequestMyAsk myAsk) {
+			if (myAsk != null) {
+				RequestParams params = new RequestParams();
+				params.add(APP, API);
+				params.add(MOD, PERSONAGE);
+				params.add(ACT, EVAQUESTION);
+				params.add(QID, myAsk.getQuestion_id());
+				params.add(EVALUATE, myAsk.getEvaluate());
+				return getTestToken(params);
+			}
+			return null;
+		}
 	}
 
 	public static final class ExperienceImpl implements ExperienceIm {
@@ -472,15 +518,15 @@ public class api {
 				params.add(ACT, ADD_POST);
 				/**
 				 * weiba_id 微吧id 必填
-				 * 
+				 *
 				 * parent_id 上级帖子id 选填
-				 * 
+				 *
 				 * title 标题 必填
-				 * 
+				 *
 				 * post_time 时间 必填
-				 * 
+				 *
 				 * body 内容 必填
-				 * 
+				 *
 				 * tags 标签 多个以逗号隔开 至少一个 必填
 				 * */
 				params.add(WEIBA_ID, send.getWeiba_id());
@@ -705,6 +751,33 @@ public class api {
 			params.add(ACT, MY_MED_RECORD);
 			getTestToken(params);
 			return params;
+		}
+
+		@Override
+		public RequestParams presentHistory(ModelCaseRecord record) {
+			RequestParams params = new RequestParams();
+			params.add(APP, API);
+			params.add(MOD, MEDRECORD);
+			params.add(ACT, PRESENT_HISTORY);
+			if (record != null) {
+				getChangePage(params, record);
+			}
+			getTestToken(params);
+			return params;
+		}
+
+		@Override
+		public RequestParams resultInfo(ModelCaseRecord record) {
+			if (record != null) {
+				RequestParams params = new RequestParams();
+				params.add(APP, API);
+				params.add(MOD, MEDRECORD);
+				params.add(ACT, RESULT_INFO);
+				params.add(ID, record.getId());
+				getTestToken(params);
+				return params;
+			}
+			return null;
 		}
 	}
 }

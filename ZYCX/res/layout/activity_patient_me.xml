@@ -282,14 +282,87 @@
                 android:textSize="@dimen/text_common" />
 
             <TextView
+                android:id="@+id/tv_drink"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top"
+                android:text="饮酒：饮酒，18岁开始，270ml/日，已戒酒，戒酒时间 2013-12"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_common" />
+
+            <TextView
                 android:id="@+id/tv_first"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_top"
-                android:text="月经年纪12岁，末次月经时间2012-12-16"
+                android:text="月经史：月经年纪12岁，末次月经时间2012-12-16"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_common" />
+
+            <TextView
+                android:id="@+id/tv_child"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top"
+                android:text="子女："
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_common" />
+
+            <TextView
+                android:id="@+id/tv_family"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_top"
+                android:text="家族史："
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/text_common" />
         </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_third"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/item_height_50"
+            android:background="@color/main_white_pure_color"
+            android:padding="@dimen/margin_left_small" >
+
+            <TextView
+                android:id="@+id/tv_now_histroy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="现病史"
+                android:textColor="@color/text_green"
+                android:textSize="@dimen/text_very_big" />
+
+            <TextView
+                android:id="@+id/tv_now_edit2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_left_small"
+                android:layout_toRightOf="@id/tv_now_histroy"
+                android:background="@drawable/view_border_green_white_3"
+                android:gravity="center"
+                android:text="编辑"
+                android:textColor="@color/text_green"
+                android:textSize="@dimen/text_common" />
+
+            <ImageView
+                android:id="@+id/iv_now_click2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_right_small"
+                android:src="@drawable/binglijiantou" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_marginLeft="@dimen/margin_left_small"
+            android:layout_marginRight="@dimen/margin_right_small"
+            android:background="@color/text_green" />
     </LinearLayout>
 
 </ScrollView>

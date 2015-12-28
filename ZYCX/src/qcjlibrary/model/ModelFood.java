@@ -13,7 +13,7 @@ public class ModelFood extends Model {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
+
 	private String id;
 	private String type_name;
 	private String sort;
@@ -49,25 +49,7 @@ public class ModelFood extends Model {
 
 	public void setCount(String count) {
 		this.count = count;
-=======
-	private String foodName;
-	private String foodNum;
 
-	public String getFoodName() {
-		return foodName;
-	}
-
-	public void setFoodName(String foodName) {
-		this.foodName = foodName;
-	}
-
-	public String getFoodNum() {
-		return foodNum;
-	}
-
-	public void setFoodNum(String foodNum) {
-		this.foodNum = foodNum;
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 	}
 
 	public static long getSerialversionuid() {

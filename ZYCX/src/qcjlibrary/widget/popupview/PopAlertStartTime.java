@@ -15,10 +15,9 @@ import android.widget.TextView;
 import com.zhiyicx.zycx.R;
 
 /**
- * author：qiuchunjia time：上午10:57:44 类描述：
- * 
- * 这个类是实现时间选择器
- *
+ * author：tanxiaomin 
+ * time：上午11:30:44 
+ * 类描述：开始日期提醒弹出框
  */
 
 public class PopAlertStartTime extends PopView {
@@ -97,7 +96,7 @@ public class PopAlertStartTime extends PopView {
 	 */
 	private void genateYearMouthDay() {
 		for (int i = 0; i < mYear.length; i++) {
-			mYear[i] = "  " + (2015 - i) + "  ";
+			mYear[i] = "  " + (2015 + i) + "  ";
 		}
 		for (int i = 0; i < mMonth.length; i++) {
 			mMonth[i] = "  " + ((1 + i)) + "  ";
@@ -119,7 +118,7 @@ public class PopAlertStartTime extends PopView {
 		mCurrentMonth = mCurrentMonth.trim();
 		mCurrentDay = mDay[wv_date_day.getCurrentItem()];
 		mCurrentDay = mCurrentDay.trim();
-		return mCurrentYear + "年" + mCurrentMonth + "月" + mCurrentDay + "号";
+		return mCurrentYear + "-" + mCurrentMonth + "-" + mCurrentDay;
 	}
 
 }

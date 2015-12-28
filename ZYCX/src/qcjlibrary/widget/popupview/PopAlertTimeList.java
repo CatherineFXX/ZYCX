@@ -45,7 +45,15 @@ public class PopAlertTimeList extends PopView {
 	/** 设置的时间的位置 **/
 	private int index;
 	private StringBuffer time;
+	/** 提醒次数**/
 	private int count;
+	/** 返回数据的Item的标志**/
+	private int flag;
+	/** 四个子选项返回的值**/
+	private String item_1 = "";
+	private String item_2 = "";
+	private String item_3 = "";
+	private String item_4 = "";
 
 	public PopAlertTimeList(Activity activity, Object object, PopResultListener resultListener) {
 		super(activity, object, resultListener);
@@ -79,6 +87,7 @@ public class PopAlertTimeList extends PopView {
 		timeList.add(childItemThree);
 		timeList.add(childItemFour);
 		ll_alert_time_list.addView(childItemOne);
+		count = 1;
 	}
 
 	@Override
@@ -116,8 +125,9 @@ public class PopAlertTimeList extends PopView {
 			public void onClick(View v) {
 				ModelPop data = new ModelPop();
 				String timeStr = "8: 00";
+				time.append(item_1).append(item_2).append(item_3).append(item_4);
 				if (time.length() > 4) {
-					timeStr = (String) time.subSequence(0, time.length() - 1);
+					timeStr = (String) time.subSequence(0, time.length() - 2);
 				}
 				data.setType(Config.TYPE_TIME_LIST);
 				data.setDataStr(timeStr+","+count+"次");
@@ -131,11 +141,13 @@ public class PopAlertTimeList extends PopView {
 
 				@Override
 				public void onClick(View v) {
+					/** PopWindow必须有一个base activity,因此在弹出子项选择框时需要先关闭当前的选择框**/
 					mPopWindow.dismiss();
 					PopAlertTime alertTime = new PopAlertTime(Thinksns.medicineAct, null, listener);
 					alertTime.setPopalerttime(PopAlertTimeList.this);
 					alertTime.showPop(childItem, Gravity.BOTTOM, 0, 0);
 					tv_alert_time = (TextView) childItem.findViewById(R.id.tv_alert_time);
+					flag = timeList.indexOf(childItem);
 				}
 			});
 		}
@@ -148,8 +160,32 @@ public class PopAlertTimeList extends PopView {
 	 */
 	public void setOtherPopView(Object object) {
 		// TODO
+		/** 获得到返回数据后将本类的PopWindow展示出来**/
 		PopAlertTimeList.this.showPop(btn_alert_time_check, Gravity.BOTTOM, 0, 0);
-		time.append(object.toString() + ";");
+		switch (flag) {
+		case 0:
+			item_1 = setTime(object);
+			break;
+		case 1:
+			item_2 = setTime(object);
+			break;
+		case 2:
+			item_3 = setTime(object);
+			break;
+		case 3:
+			item_4 = setTime(object);
+			break;
+
+		default:
+			break;
+		}
 		tv_alert_time.setText(object.toString());
+	}
+	
+	private String setTime(Object object){
+		if(object.toString() != null){
+			return object.toString()+"; ";
+		}
+		return "";
 	}
 }

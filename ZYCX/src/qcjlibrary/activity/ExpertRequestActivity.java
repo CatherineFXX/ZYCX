@@ -4,13 +4,13 @@ import qcjlibrary.activity.base.BaseActivity;
 import qcjlibrary.adapter.ExpertRequestAdapter;
 import qcjlibrary.listview.base.CommonListView;
 import qcjlibrary.util.DisplayUtils;
+
 import android.view.View;
 
 import com.zhiyicx.zycx.R;
 
 /**
  * author：qiuchunjia time：下午5:33:01 类描述：这个类是实现
- *
  */
 
 public class ExpertRequestActivity extends BaseActivity {
@@ -40,24 +40,28 @@ public class ExpertRequestActivity extends BaseActivity {
 	@Override
 	public void initView() {
 		mCommonListView = (CommonListView) findViewById(R.id.mCommonListView);
-<<<<<<< HEAD
 		mCommonListView.setDividerHeight(DisplayUtils.dp2px(mApp, 10));
-=======
-		mCommonListView.setDividerHeight(20);
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 		mAdapter = new ExpertRequestAdapter(this, null);
 		mCommonListView.setAdapter(mAdapter);
 	}
 
 	@Override
+	public Object onResponceSuccess(String str, Class class1) {
+		Object object = super.onResponceSuccess(str, class1);
+		// 用于更新同意后的adapter
+		if (judgeTheMsg(object)) {
+			mAdapter.doRefreshHeader();
+		}
+		return object;
+	}
+
+	@Override
 	public void initData() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void initListener() {
-		// TODO Auto-generated method stub
 
 	}
 

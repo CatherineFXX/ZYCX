@@ -1,24 +1,17 @@
 package qcjlibrary.adapter;
 
-<<<<<<< HEAD
-=======
-import java.util.List;
-
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 import qcjlibrary.activity.base.BaseActivity;
 import qcjlibrary.adapter.base.BAdapter;
 import qcjlibrary.adapter.base.ViewHolder;
 import qcjlibrary.fragment.base.BaseFragment;
-<<<<<<< HEAD
+
 import qcjlibrary.model.ModelFoodSearch;
 import qcjlibrary.model.ModelFoodSearch0;
 import qcjlibrary.model.ModelFoodSearch1;
 import qcjlibrary.model.ModelFoodSearchIndex;
 import qcjlibrary.model.base.Model;
 import android.util.Log;
-=======
-import qcjlibrary.model.base.Model;
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -34,7 +27,7 @@ import com.zhiyicx.zycx.R;
  */
 
 public class FoodCategoryAdapter extends BAdapter {
-<<<<<<< HEAD
+
 	private ModelFoodSearch mSearch;
 
 	public FoodCategoryAdapter(BaseActivity activity, ModelFoodSearch search) {
@@ -45,15 +38,7 @@ public class FoodCategoryAdapter extends BAdapter {
 	public FoodCategoryAdapter(BaseFragment fragment, ModelFoodSearch search) {
 		super(fragment, null);
 		this.mSearch = search;
-=======
 
-	public FoodCategoryAdapter(BaseActivity activity, List<Model> list) {
-		super(activity, list);
-	}
-
-	public FoodCategoryAdapter(BaseFragment fragment, List<Model> list) {
-		super(fragment, list);
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 	}
 
 	@Override
@@ -73,7 +58,7 @@ public class FoodCategoryAdapter extends BAdapter {
 
 	private void bindDataToView(ViewHolder holder, int position) {
 		if (holder != null) {
-<<<<<<< HEAD
+
 			Model model = mList.get(position);
 			if (model instanceof ModelFoodSearch0) {
 				ModelFoodSearch0 search0 = (ModelFoodSearch0) model;
@@ -89,8 +74,7 @@ public class FoodCategoryAdapter extends BAdapter {
 				holder.tv_food_function.setText(search1.getGongxiao());
 				holder.tv_cancer.setText(search1.getFangzhi_cancer());
 			}
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 		}
 	}
 
@@ -115,37 +99,31 @@ public class FoodCategoryAdapter extends BAdapter {
 
 	@Override
 	public void refreshNew() {
-<<<<<<< HEAD
+
 		sendRequest(mApp.getFoodImpl().food_search(mSearch),
 				ModelFoodSearchIndex.class, 0, REFRESH_NEW);
-=======
-		sendRequest(null, null, 1, 1);
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 	}
 
 	@Override
 	public void refreshHeader(Model item, int count) {
-<<<<<<< HEAD
+
 		// sendRequest(mApp.getFoodImpl().food_search(mSearch),
 		// ModelFoodSearchIndex.class, 0, REFRESH_NEW);
-=======
-		sendRequest(null, null, 1, 1);
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 	}
 
 	@Override
 	public void refreshFooter(Model item, int count) {
-<<<<<<< HEAD
+
 		// sendRequest(mApp.getFoodImpl().food_search(mSearch),
 		// ModelFoodSearchIndex.class, 0, REFRESH_NEW);
-=======
-		// TODO Auto-generated method stub
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 	}
 
 	@Override
 	public int getTheCacheType() {
-<<<<<<< HEAD
+
 		return 0;
 	}
 
@@ -161,10 +139,5 @@ public class FoodCategoryAdapter extends BAdapter {
 		}
 		return null;
 	}
-=======
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 }

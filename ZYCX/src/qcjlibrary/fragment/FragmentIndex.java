@@ -1,14 +1,19 @@
 package qcjlibrary.fragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import qcjlibrary.activity.FoodWayActivity;
-import qcjlibrary.activity.MsgNotifyPraiseActivity;
-<<<<<<< HEAD
 import qcjlibrary.activity.PatientMeActivity;
 import qcjlibrary.activity.UseMedicineNotifyActivity;
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+import qcjlibrary.activity.base.BaseActivity;
 import qcjlibrary.fragment.base.BaseFragment;
+import qcjlibrary.model.ModelAds;
 import qcjlibrary.model.base.Model;
+import qcjlibrary.response.DataAnalyze;
+import qcjlibrary.util.ToastUtils;
+import qcjlibrary.widget.ads.MyADView;
+import qcjlibrary.widget.ads.MyADViewModel;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -18,11 +23,11 @@ import com.zhiyicx.zycx.activity.HomeActivity;
 
 /**
  * author：qiuchunjia time：上午10:32:51 类描述：这个类是实现
- *
  */
 
 public class FragmentIndex extends BaseFragment {
 	private RelativeLayout rl_ads;
+	private MyADView ad_view_ads;
 	private RelativeLayout index_choose;
 	private LinearLayout ll_first;
 	private RelativeLayout rl_1;
@@ -35,7 +40,6 @@ public class FragmentIndex extends BaseFragment {
 
 	@Override
 	public void initIntentData() {
-
 	}
 
 	@Override
@@ -46,6 +50,7 @@ public class FragmentIndex extends BaseFragment {
 	@Override
 	public void initView() {
 		rl_ads = (RelativeLayout) findViewById(R.id.rl_ads);
+		ad_view_ads = (MyADView) findViewById(R.id.ad_view_ads);
 		index_choose = (RelativeLayout) findViewById(R.id.index_choose);
 		ll_first = (LinearLayout) findViewById(R.id.ll_first);
 		rl_1 = (RelativeLayout) findViewById(R.id.rl_1);
@@ -71,19 +76,39 @@ public class FragmentIndex extends BaseFragment {
 		if (mActivity instanceof HomeActivity) {
 			mHomeActivity = (HomeActivity) mActivity;
 		}
+		sendRequest(mApp.getZhiXunImpl().appBanner(), ModelAds.class,
+				BaseActivity.REQUEST_GET);
+	}
+
+	@Override
+	public Object onResponceSuccess(String str, Class class1) {
+		Object object = DataAnalyze.parseData(str, class1);
+		if (object instanceof List) {
+			List<ModelAds> modelAdses = (List<ModelAds>) object;
+			List<MyADViewModel> myADViewModels = new ArrayList<MyADViewModel>();
+			for (int i = 0; i < modelAdses.size(); i++) {
+				MyADViewModel viewModel = new MyADViewModel();
+				ModelAds modelAds = modelAdses.get(i);
+				viewModel.setImgUrl(modelAds.getBannerpic());
+				myADViewModels.add(viewModel);
+			}
+			try {
+				ad_view_ads.setData(myADViewModels);
+			} catch (Exception e) {
+				ToastUtils.showToast("图片数据返回为空！");
+				e.printStackTrace();
+			}
+		}
+		return object;
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.rl_1:
-<<<<<<< HEAD
+
 			setTabFragement(HomeActivity.index_qustion);
-=======
-			// TODO
-			mApp.startActivity_qcj(mActivity, MsgNotifyPraiseActivity.class,
-					mActivity.sendDataToBundle(new Model(), null));
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 			break;
 
 		case R.id.rl_2:

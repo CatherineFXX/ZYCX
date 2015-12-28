@@ -20,10 +20,9 @@ import org.apache.http.Header;
 import qcjlibrary.adapter.base.BAdapter;
 import qcjlibrary.config.Config;
 import qcjlibrary.fragment.base.BaseFragment;
-<<<<<<< HEAD
+
 import qcjlibrary.model.ModelMsg;
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 import qcjlibrary.model.ModelUser;
 import qcjlibrary.model.base.Model;
 import qcjlibrary.request.base.Request;

@@ -6,7 +6,9 @@ import qcjlibrary.activity.base.BaseActivity;
 import qcjlibrary.adapter.base.BAdapter;
 import qcjlibrary.adapter.base.ViewHolder;
 import qcjlibrary.fragment.base.BaseFragment;
+import qcjlibrary.model.ModelAlertData;
 import qcjlibrary.model.base.Model;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -23,6 +25,7 @@ import com.zhiyicx.zycx.R;
 
 public class UseMedicineNotifyAdapter extends BAdapter {
 
+	
 	public UseMedicineNotifyAdapter(BaseActivity activity, List<Model> list) {
 		super(activity, list);
 	}
@@ -48,6 +51,10 @@ public class UseMedicineNotifyAdapter extends BAdapter {
 
 	private void bindDataToView(ViewHolder holder, int position) {
 		if (holder != null) {
+			ModelAlertData mData = (ModelAlertData) mList.get(position);
+			holder.tv_user_name.setText(mData.getUserName());
+			holder.tv_medicine_name.setText(mData.getMedicineName());
+			holder.tv_user_time.setText(mData.getRepeatDaily()+mData.getRepeatCount());
 		}
 	}
 
@@ -73,28 +80,25 @@ public class UseMedicineNotifyAdapter extends BAdapter {
 
 	@Override
 	public void refreshNew() {
-		sendRequest(null, null, 1, 1);
+		//sendRequest(null, null, 1, 1);
 	}
 
 	@Override
 	public void refreshHeader(Model item, int count) {
-		sendRequest(null, null, 1, 1);
+		//sendRequest(null, null, 1, 1);
 	}
 
 	@Override
 	public void refreshFooter(Model item, int count) {
-		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public int getTheCacheType() {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public List<Model> getReallyList(Object object, Class type2) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

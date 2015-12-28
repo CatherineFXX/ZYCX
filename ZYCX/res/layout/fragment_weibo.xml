@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<qcjlibrary.listview.base.CommonListView
+        android:id="@+id/lv_search_weibo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/main_white_bg_color" >
+    </qcjlibrary.listview.base.CommonListView>
+    
+</LinearLayout>

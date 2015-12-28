@@ -27,18 +27,13 @@ public class CommonListView extends BaseListView {
 	public void stepToNextActivity(AdapterView<?> parent, View view,
 			int position, Class<? extends Activity> activityClass) {
 		Model model = (Model) parent.getItemAtPosition(position);
-<<<<<<< HEAD
+
 		if (mActivity instanceof BaseActivity) {
 			BaseActivity activity = ((BaseActivity) mActivity);
-=======
-		if (mContext instanceof BaseActivity) {
-			BaseActivity activity = ((BaseActivity) mContext);
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 			Bundle data = activity.sendDataToBundle(model, null);
 			mApp.startActivity_qcj(activity, activityClass, data);
 		}
 	}
-<<<<<<< HEAD
 
 	public void stepToNextActivity(Model sendData,
 			Class<? extends Activity> activityClass) {
@@ -48,6 +43,5 @@ public class CommonListView extends BaseListView {
 			mApp.startActivity_qcj(activity, activityClass, data);
 		}
 	}
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 }

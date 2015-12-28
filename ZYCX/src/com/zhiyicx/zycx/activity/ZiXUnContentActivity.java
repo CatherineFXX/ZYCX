@@ -4,10 +4,13 @@ import org.json.JSONObject;
 
 import qcjlibrary.activity.base.BaseActivity;
 import qcjlibrary.activity.base.Title;
+import qcjlibrary.model.ModelMsg;
 import qcjlibrary.model.ModelZiXunDetail;
+import qcjlibrary.util.ToastUtils;
 import qcjlibrary.util.UIUtils;
 import qcjlibrary.widget.popupview.PopSizeChoose;
 import qcjlibrary.widget.popupview.base.PopView;
+
 import android.content.Intent;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -93,6 +96,7 @@ public class ZiXUnContentActivity extends BaseActivity {
 		findViewById(R.id.btn_share).setOnClickListener(this);
 		findViewById(R.id.btn_comment).setOnClickListener(this);
 		findViewById(R.id.btn_collect).setOnClickListener(this);
+		findViewById(R.id.btn_praise).setOnClickListener(this);
 		mCollBtn = (Button) findViewById(R.id.btn_collect);
 		mCmtEdit = (EditText) findViewById(R.id.edit_cmt);
 
@@ -122,6 +126,10 @@ public class ZiXUnContentActivity extends BaseActivity {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.btn_praise:
+			sendRequest(mApp.getZhiXunImpl().doPraise(mDetail), ModelMsg.class,
+					BaseActivity.REQUEST_GET);
+			break;
 		case R.id.btn_back:
 			finish();
 			break;
@@ -154,6 +162,16 @@ public class ZiXUnContentActivity extends BaseActivity {
 				collect(1);
 			break;
 		}
+	}
+
+	@Override
+	public Object onResponceSuccess(String str, Class class1) {
+		Object object = super.onResponceSuccess(str, class1);
+		if (judgeTheMsg(object)) {
+			ModelMsg modelMsg = (ModelMsg) object;
+			ToastUtils.showToast(modelMsg.getMessage());
+		}
+		return object;
 	}
 
 	private void comment() {
@@ -307,8 +325,10 @@ public class ZiXUnContentActivity extends BaseActivity {
 					if (ret == 0) {
 						JSONObject data = jsonObject.getJSONObject("data");
 						mUrl = data.getString("url");
-						mContent.loadUrl(mUrl
-								+ Utils.getTokenString(ZiXUnContentActivity.this));
+						String wholeUrl = mUrl
+								+ Utils.getTokenString(ZiXUnContentActivity.this);
+						ToastUtils.showToast(wholeUrl);
+						mContent.loadUrl(wholeUrl);
 						mIsColl = data.getInt("isColl");
 						if (mIsColl == 1)
 							mCollBtn.setText("不收藏");

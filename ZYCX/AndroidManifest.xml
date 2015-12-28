@@ -53,7 +53,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    
+    <!-- tan 开机广播接受权限 -->
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<permission android:protectionLevel="normal" android:name="alert.music.permission"></permission>
+	
     <supports-screens
         android:anyDensity="true"
         android:largeScreens="true"
@@ -336,7 +340,6 @@
         <activity android:name="qcjlibrary.activity.FoodWayActivity" />
         <activity android:name="qcjlibrary.activity.FoodCategoryActivity" />
         <activity android:name="qcjlibrary.activity.FoodWaySingleDetail" />
-<<<<<<< HEAD
         <activity android:name="qcjlibrary.activity.FoodSingleDetailActivity" />
         <activity android:name="qcjlibrary.activity.CaseHistoryActivity" />
         <activity android:name="qcjlibrary.activity.CaseHistoryDetailActivity" />
@@ -375,13 +378,41 @@
         <activity android:name="qcjlibrary.activity.NotifySingleReplyActivity" />
         <activity android:name="qcjlibrary.activity.ChooseNationActivity" />
         <activity android:name="qcjlibrary.activity.ChooseEducationActivity" />
+        <activity android:name="qcjlibrary.activity.ChooseLabWayActivity" />
+        <activity android:name="qcjlibrary.activity.ChooseSurgeryWayActivity" />
+        <activity android:name="qcjlibrary.activity.ChooseTreatWayActivity" />
+        <activity android:name="qcjlibrary.activity.PatientNowHistoryActivity" />
         <activity android:name="com.zhiyicx.zycx.activity.WebActivity" >
-=======
-        <activity android:name="qcjlibrary.activity.FoodCategorySingleDetail" />
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 
             <!-- 癌友帮二期开发新增加页面end -->
         </activity>
+        
+        <receiver android:name="qcjlibrary.broadcast.AlarmBroadCastReciever">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+                <action android:name="alarm.alert.short"/>
+            </intent-filter>
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_MOUNTED"/>
+                <action android:name="android.intent.action.MEDIA_EJECT"/>
+            </intent-filter>
+        </receiver>
+        
+       	
+        <service 
+            android:name="qcjlibrary.service.AlertService"
+            android:permission="alert.music.permission">
+            <intent-filter >
+                <action android:name="alert_music"/>
+            </intent-filter>
+            
+        </service>
+        
     </application>
+    
+    
 
 </manifest>

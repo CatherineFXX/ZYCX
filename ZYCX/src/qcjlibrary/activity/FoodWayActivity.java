@@ -4,26 +4,17 @@ import qcjlibrary.activity.base.BaseActivity;
 import qcjlibrary.activity.base.Title;
 import qcjlibrary.fragment.FragementFood;
 import qcjlibrary.fragment.FragementFoodWay;
-<<<<<<< HEAD
-import qcjlibrary.model.ModelFoodIndex;
 import qcjlibrary.model.ModelFoodSearch;
 import qcjlibrary.model.ModelFoodSearchIndex;
 import qcjlibrary.util.ToastUtils;
 import android.text.TextUtils;
-import android.util.Log;
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
-<<<<<<< HEAD
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-=======
-import android.widget.RelativeLayout;
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 
 import com.zhiyicx.zycx.R;
 
@@ -35,39 +26,31 @@ import com.zhiyicx.zycx.R;
 public class FoodWayActivity extends BaseActivity {
 	private ImageView iv_find;
 	private EditText et_find;
-<<<<<<< HEAD
+
 	private TextView tv_find;
 	private LinearLayout ll_find;
 	private RelativeLayout rl_find;
 	private ImageView iv_find_main;
 
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 	private RelativeLayout rl_content;
 	Title mTitle;
 
 	private FragementFood mFragmentFood;
 	private FragementFoodWay mFragmentFoodWay;
 
-<<<<<<< HEAD
+
 	ModelFoodSearch mFoodSearch; // 搜索需要传送的数据
 
 	@Override
 	public String setCenterTitle() {
 		return "食材和食疗方";
-=======
-	@Override
-	public String setCenterTitle() {
-		return "食谱";
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 	}
 
 	@Override
 	public void initIntent() {
-<<<<<<< HEAD
-=======
-		// TODO Auto-generated method stub
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 
 	}
 
@@ -80,13 +63,12 @@ public class FoodWayActivity extends BaseActivity {
 	public void initView() {
 		iv_find = (ImageView) findViewById(R.id.iv_find);
 		et_find = (EditText) findViewById(R.id.et_find);
-<<<<<<< HEAD
+
 		tv_find = (TextView) findViewById(R.id.tv_find);
 		ll_find = (LinearLayout) findViewById(R.id.ll_find);
 		rl_find = (RelativeLayout) findViewById(R.id.rl_find);
 		iv_find_main = (ImageView) findViewById(R.id.iv_find_main);
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 		rl_content = (RelativeLayout) findViewById(R.id.rl_content);
 		mTitle = getTitleClass();
 	}
@@ -102,7 +84,7 @@ public class FoodWayActivity extends BaseActivity {
 		mTitle.iv_1_choose.setVisibility(View.VISIBLE);
 	}
 
-<<<<<<< HEAD
+
 	@Override
 	public Object onResponceSuccess(String str, Class class1) {
 		Object object = super.onResponceSuccess(str, class1);
@@ -115,8 +97,6 @@ public class FoodWayActivity extends BaseActivity {
 		return object;
 	}
 
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 	private boolean isSecond = false;
 
 	@Override
@@ -148,17 +128,15 @@ public class FoodWayActivity extends BaseActivity {
 				}
 			}
 		});
-<<<<<<< HEAD
+
 		tv_find.setOnClickListener(this);
 		iv_find_main.setOnClickListener(this);
-=======
 
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 	}
 
 	@Override
 	public void onClick(View v) {
-<<<<<<< HEAD
+
 		switch (v.getId()) {
 		case R.id.tv_find:
 			ll_find.setVisibility(View.GONE);
@@ -183,10 +161,5 @@ public class FoodWayActivity extends BaseActivity {
 		}
 
 	}
-=======
-		// TODO Auto-generated method stub
 
-	}
-
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 }

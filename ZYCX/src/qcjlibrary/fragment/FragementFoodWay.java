@@ -1,6 +1,6 @@
 package qcjlibrary.fragment;
 
-<<<<<<< HEAD
+
 import java.util.List;
 
 import qcjlibrary.activity.FoodCategoryActivity;
@@ -13,12 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-=======
-import qcjlibrary.fragment.base.BaseFragment;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 
 import com.zhiyicx.zycx.R;
 
@@ -31,10 +26,9 @@ public class FragementFoodWay extends BaseFragment {
 	private LinearLayout ll_food; // 用于动态添加布局文件
 	private RelativeLayout rl_cancer;
 	private RelativeLayout rl_cancer_category;
-<<<<<<< HEAD
+
 	private ModelFoodIndex mFoodIndex;
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 
 	@Override
 	public void initIntentData() {
@@ -63,7 +57,7 @@ public class FragementFoodWay extends BaseFragment {
 
 	@Override
 	public void initData() {
-<<<<<<< HEAD
+
 		sendRequest(mApp.getFoodImpl().index(), ModelFoodIndex.class,
 				REQUEST_GET);
 	}
@@ -109,10 +103,7 @@ public class FragementFoodWay extends BaseFragment {
 				ll_food.addView(view);
 			}
 		}
-=======
-		// TODO Auto-generated method stub
 
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 	}
 
 	@Override

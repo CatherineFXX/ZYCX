@@ -169,11 +169,22 @@
                 android:background="@color/main_white_pure_color"
                 android:padding="@dimen/margin_left_small" >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/tianjiatupian" >
-                </ImageView>
+                <HorizontalScrollView
+                    android:id="@+id/hsvScrollView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:visibility="visible" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_ScrollView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </HorizontalScrollView>
             </RelativeLayout>
         </LinearLayout>
 
@@ -195,7 +206,7 @@
                 android:textSize="@dimen/text_very_big" />
 
             <RelativeLayout
-                android:id="@+id/rl_lab_check_time"
+                android:id="@+id/rl_lab_check_project"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:background="@color/main_white_pure_color"
@@ -300,11 +311,22 @@
                 android:background="@color/main_white_pure_color"
                 android:padding="@dimen/margin_left_small" >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/tianjiatupian" >
-                </ImageView>
+                <HorizontalScrollView
+                    android:id="@+id/hsvScrollView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:visibility="visible" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_ScrollView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </HorizontalScrollView>
             </RelativeLayout>
         </LinearLayout>
 
@@ -326,7 +348,7 @@
                 android:textSize="@dimen/text_very_big" />
 
             <RelativeLayout
-                android:id="@+id/rl_vedio_check_time"
+                android:id="@+id/rl_vedio_check_project"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:background="@color/main_white_pure_color"
@@ -431,11 +453,22 @@
                 android:background="@color/main_white_pure_color"
                 android:padding="@dimen/margin_left_small" >
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/tianjiatupian" >
-                </ImageView>
+                <HorizontalScrollView
+                    android:id="@+id/hsvScrollView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    android:visibility="visible" >
+
+                    <LinearLayout
+                        android:id="@+id/ll_ScrollView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </HorizontalScrollView>
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>

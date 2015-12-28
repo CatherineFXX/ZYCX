@@ -24,11 +24,7 @@
         android:textSize="@dimen/text_small" />
 
     <TextView
-<<<<<<< HEAD
         android:id="@+id/tv_notify_title"
-=======
-        android:id="@+id/tv_title"
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_top"
@@ -44,11 +40,7 @@
         android:lineSpacingExtra="@dimen/text_lineSpacingExtra"
         android:text="内容"
         android:textColor="@color/text_gray"
-<<<<<<< HEAD
-        android:textSize="@dimen/text_small"
         android:visibility="gone" />
-=======
-        android:textSize="@dimen/text_small" />
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 
 </LinearLayout>

@@ -50,6 +50,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@id/iv_search"
                 android:background="@null"
+                android:imeOptions="actionSearch"
                 android:hint="搜索关键词"
                 android:src="@drawable/search_icon"
                 android:textColor="@color/text_white"

@@ -3,6 +3,8 @@ package qcjlibrary.api;
 import qcjlibrary.model.ModelAddCase;
 import qcjlibrary.model.ModelAddHistoryCase;
 import qcjlibrary.model.ModelAddNowCase;
+import qcjlibrary.model.ModelCasePresent;
+import qcjlibrary.model.ModelCaseRecord;
 
 import com.loopj.android.http.RequestParams;
 
@@ -20,6 +22,8 @@ public interface MedRecordIm {
 	public static final String MY_MED_RECORD = "my_med_record";
 	public static final String SAVE_HISTORY = "save_history";
 	public static final String SAVE_PRESENT = "save_present";
+	public static final String PRESENT_HISTORY = "present_history"; // 病历-历史记录
+	public static final String RESULT_INFO = "result_info"; // 病历-历史记录详情
 
 	// 接口需要传的值的键
 	public static final String REALNAME = "realname";
@@ -35,25 +39,6 @@ public interface MedRecordIm {
 	public static final String HEIGHT = "height";
 	public static final String WEIGHT = "weight";
 
-	// med_history 既往病史
-	// allergy_history 过敏史
-	// per_history 个人史
-	// eating_habit 饮食习惯
-	// smoke 抽烟 0不抽 1抽
-	// smoke_age 抽烟年龄
-	// smoke_time 每日抽烟根数
-	// stop_smoke 是否戒烟 0-未戒 1-已戒
-	// stop_smoke_time 戒烟时间
-	// drink 是否饮酒 0不饮酒 1饮酒
-	// drink_age 饮酒年龄
-	// drink_consumption 饮酒量
-	// stop_drink 是否戒酒 0-未戒 1-已戒
-	// stop_drink_time 戒酒时间
-	// menarche_age 初潮年纪
-	// menarche_etime 末次月经时间
-	// amenorrhoea_age 闭经年龄
-	// childs 子女
-	// family_history 家族史
 	public static final String MED_HISTORY = "med_history";
 	public static final String ALLERGY_HISTORY = "allergy_history";
 	public static final String PER_HISTORY = "per_history";
@@ -73,19 +58,6 @@ public interface MedRecordIm {
 	public static final String AMENORRHOEA_AGE = "amenorrhoea_age";
 	public static final String CHILDS = "childs";
 	public static final String FAMILY_HISTORY = "family_history";
-	// diagnosis_etime 诊断截止时间
-	// diagnosis_hospital 检查医院
-	// diagnosis_way 诊断方式
-	// lab_exam_program 实验室检查项目
-	// lab_exam_time 实验室检查时间
-	// lab_exam_hospital 实验室检查医院
-	// image_exam_program 影像学检查项目
-	// image_exam_time 影像学检查时间
-	// image_exam_hospital 影像学检查医院
-	// 图片文件上传
-	// diagnosis 诊断图片
-	// lab_exam 实验室检查图片
-	// image_exam 影像学检查图片
 	public static final String DIAGNOSIS_ETIME = "diagnosis_etime";
 	public static final String DIAGNOSIS_HOSPITAL = "diagnosis_hospital";
 	public static final String DIAGNOSIS_WAY = "diagnosis_way";
@@ -98,6 +70,7 @@ public interface MedRecordIm {
 	public static final String DIAGNOSIS = "diagnosis";
 	public static final String LAB_EXAM = "lab_exam";
 	public static final String IMAGE_EXAM = "image_exam";
+	public static final String ID = "id";
 
 	/**
 	 * 病历-添加病历
@@ -136,5 +109,21 @@ public interface MedRecordIm {
 	 * @return
 	 */
 	public RequestParams myMedRecord();
+
+	/**
+	 * 病历-历史记录
+	 * 
+	 * @param present
+	 * @return
+	 */
+	public RequestParams presentHistory(ModelCaseRecord record);
+
+	/**
+	 * 病历-历史记录详情
+	 * 
+	 * @param present
+	 * @return
+	 */
+	public RequestParams resultInfo(ModelCaseRecord record);
 
 }

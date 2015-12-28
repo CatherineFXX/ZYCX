@@ -15,9 +15,17 @@ public class ModelAlertData extends Model{
 	private String timeList;//重复时间列表
 	private String startTime;//开始时间
 	private String repeatDaily;//重复频率
+	private String repeatCount;//重复次数
 	private boolean isExit;//是否已经存在
 	private boolean isOpen;//是否开启
 	
+	
+	public String getRepeatCount() {
+		return repeatCount;
+	}
+	public void setRepeatCount(String repeatCount) {
+		this.repeatCount = repeatCount;
+	}
 	public boolean isOpen() {
 		return isOpen;
 	}

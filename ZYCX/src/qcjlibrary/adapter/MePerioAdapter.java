@@ -90,13 +90,12 @@ public class MePerioAdapter extends BAdapter {
 		return 0;
 	}
 
-<<<<<<< HEAD
+
 	@Override
 	public List<Model> getReallyList(Object object, Class type2) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 }

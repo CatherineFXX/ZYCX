@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import qcjlibrary.activity.base.BaseActivity;
-import qcjlibrary.config.Config;
 import qcjlibrary.util.localImageHelper.LocalImage;
 import qcjlibrary.util.localImageHelper.PhotoDirInfo;
 import qcjlibrary.util.localImageHelper.adapter.ImageListAdapter;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -28,6 +29,7 @@ public class LocalImagListActivity extends BaseActivity {
 	private ArrayList<PhotoDirInfo> mDirInfos;
 	private ImageListAdapter adapter;
 	ArrayList<String> mPhotoPathlist;
+	private String mReturnType;
 
 	@Override
 	public void onClick(View v) {
@@ -41,7 +43,10 @@ public class LocalImagListActivity extends BaseActivity {
 
 	@Override
 	public void initIntent() {
-
+		Object object = getDataFromIntent(getIntent(), null);
+		if (object instanceof String) {
+			mReturnType = (String) object;
+		}
 	}
 
 	@Override
@@ -91,7 +96,12 @@ public class LocalImagListActivity extends BaseActivity {
 	protected void onResume() {
 		super.onResume();
 		if (mPhotoPathlist != null) {
-			setReturnResultSeri(mPhotoPathlist, null);
+			Log.i("returntype", mReturnType + "");
+			if (!TextUtils.isEmpty(mReturnType)) {
+				setReturnResultSeri(mPhotoPathlist, mReturnType);
+			} else {
+				setReturnResultSeri(mPhotoPathlist, null);
+			}
 			onBackPressed();
 		}
 	}

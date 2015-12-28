@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -54,61 +53,6 @@
         android:layout_weight="1" >
     </RelativeLayout>
 
-=======
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/main_white_bg_color"
-    android:orientation="vertical" >
 
-    <LinearLayout
-        android:id="@+id/ll_msg_notify_praise"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_left_small"
-        android:background="@color/main_white_pure_color"
-        android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/tv_msg"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/view_border_green_left3"
-            android:gravity="center"
-            android:text="回复/评论我的"
-            android:textColor="@color/text_more_gray"
-            android:textSize="@dimen/text_common" />
-        <TextView
-            android:id="@+id/tv_praise"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/view_border_green_0"
-            android:gravity="center"
-            android:text="赞"
-            android:textColor="@color/text_more_gray"
-            android:textSize="@dimen/text_common" />
-
-        <TextView
-            android:id="@+id/tv_notify"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/view_border_green_right_3"
-            android:gravity="center"
-            android:text="通知"
-            android:textColor="@color/text_more_gray"
-            android:textSize="@dimen/text_common" />
-    </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/rl_content"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" >
-    </RelativeLayout>
-
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 </LinearLayout>

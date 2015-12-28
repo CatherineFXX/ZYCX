@@ -6,13 +6,11 @@ import qcjlibrary.activity.base.BaseActivity;
 import qcjlibrary.adapter.base.BAdapter;
 import qcjlibrary.adapter.base.ViewHolder;
 import qcjlibrary.fragment.base.BaseFragment;
-<<<<<<< HEAD
+
 import qcjlibrary.model.ModelNotifyNotice;
 import qcjlibrary.model.base.Model;
 import qcjlibrary.response.DataAnalyze;
-=======
-import qcjlibrary.model.base.Model;
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -54,7 +52,7 @@ public class NotifyAdapter extends BAdapter {
 
 	private void bindDataToView(ViewHolder holder, int position) {
 		if (holder != null) {
-<<<<<<< HEAD
+
 			ModelNotifyNotice notice = (ModelNotifyNotice) mList.get(position);
 			if (notice != null) {
 				if (notice.getType().equals("answer")) {
@@ -70,8 +68,7 @@ public class NotifyAdapter extends BAdapter {
 				}
 				holder.tv_notify_date.setText(notice.getTime());
 			}
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 		}
 	}
 
@@ -97,21 +94,17 @@ public class NotifyAdapter extends BAdapter {
 
 	@Override
 	public void refreshNew() {
-<<<<<<< HEAD
+
 		sendRequest(mApp.getNotifyImpl().noticelist(null),
 				ModelNotifyNotice.class, REQUEST_GET, REFRESH_NEW);
-=======
-		sendRequest(null, null, 1, 1);
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 	}
 
 	@Override
 	public void refreshHeader(Model item, int count) {
-<<<<<<< HEAD
+
 //		sendRequest(null, null, 1, 1);
-=======
-		sendRequest(null, null, 1, 1);
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 	}
 
 	@Override
@@ -125,7 +118,7 @@ public class NotifyAdapter extends BAdapter {
 		return 0;
 	}
 
-<<<<<<< HEAD
+
 	@Override
 	public Object onResponceSuccess(String str, Class class1) {
 		return DataAnalyze.parseData(str, class1);
@@ -136,6 +129,4 @@ public class NotifyAdapter extends BAdapter {
 		return object;
 	}
 
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
 }

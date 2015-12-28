@@ -1,10 +1,8 @@
 package qcjlibrary.adapter.base;
 
-<<<<<<< HEAD
+
 import qcjlibrary.widget.RoundImageView;
-=======
-import qcjlibrary.img.RoundImageView;
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -63,7 +61,7 @@ public class ViewHolder {
 	public TextView tv_cancer;
 
 	/******************* 食物种类 item end ************************/
-<<<<<<< HEAD
+
 	/******************* 病例历史item ************************/
 	public TextView tv_content;
 	// public TextView tv_date;
@@ -142,7 +140,6 @@ public class ViewHolder {
 	/******************* 选择地址item ************************/
 	public TextView tv_choose_adress;
 	/******************* 选择地址item end ************************/
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 
 }

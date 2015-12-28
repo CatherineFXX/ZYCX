@@ -19,19 +19,13 @@
             android:src="@drawable/shiliaodaquanbanner" />
         <!-- 搜索框 -->
 
-<<<<<<< HEAD
         <FrameLayout
             android:id="@+id/fl_find"
-=======
-        <LinearLayout
-            android:id="@+id/ll_find"
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
             android:layout_width="match_parent"
             android:layout_height="@dimen/item_height"
             android:layout_below="@id/iv_bg"
             android:layout_marginLeft="@dimen/margin_left_small"
             android:layout_marginRight="@dimen/margin_right_small"
-<<<<<<< HEAD
             android:background="@drawable/view_border_gray_3" >
 
             <RelativeLayout
@@ -90,28 +84,6 @@
                     android:textSize="@dimen/text_common" />
             </LinearLayout>
         </FrameLayout>
-=======
-            android:background="@drawable/view_border_gray_3"
-            android:gravity="center"
-            android:orientation="horizontal" >
-
-            <ImageView
-                android:id="@+id/iv_find"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/shiliaosearch" />
-
-            <EditText
-                android:id="@+id/et_find"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/margin_left_small"
-                android:background="@null"
-                android:gravity="center"
-                android:hint="搜索关键词" />
-        </LinearLayout>
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
     </RelativeLayout>
 
     <include layout="@layout/view_line_vertical" />
@@ -125,14 +97,8 @@
     <RelativeLayout
         android:id="@+id/rl_content"
         android:layout_width="match_parent"
-<<<<<<< HEAD
         android:layout_height="match_parent"
         android:background="@color/main_white_bg_color" >
-=======
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/main_white_pure_color" >
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
     </RelativeLayout>
 
 </LinearLayout>

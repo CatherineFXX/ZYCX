@@ -1,10 +1,9 @@
 package qcjlibrary.activity;
 
 import qcjlibrary.activity.base.BaseActivity;
-<<<<<<< HEAD
+
 import qcjlibrary.model.ModelNotifyNotice;
-=======
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,14 +17,11 @@ import com.zhiyicx.zycx.R;
 public class MsgNotifyDetailActivity extends BaseActivity {
 	private TextView tv_system_notify;
 	private TextView tv_date;
-<<<<<<< HEAD
+
 	private TextView tv_notify_title;
 	private TextView tv_content;
 	private ModelNotifyNotice mNotice;
-=======
-	private TextView tv_title;
-	private TextView tv_content;
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 
 	@Override
 	public String setCenterTitle() {
@@ -34,11 +30,9 @@ public class MsgNotifyDetailActivity extends BaseActivity {
 
 	@Override
 	public void initIntent() {
-<<<<<<< HEAD
-		mNotice = (ModelNotifyNotice) getDataFromIntent(getIntent(), null);
-=======
 
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+		mNotice = (ModelNotifyNotice) getDataFromIntent(getIntent(), null);
+
 	}
 
 	@Override
@@ -50,18 +44,16 @@ public class MsgNotifyDetailActivity extends BaseActivity {
 	public void initView() {
 		tv_system_notify = (TextView) findViewById(R.id.tv_system_notify);
 		tv_date = (TextView) findViewById(R.id.tv_date);
-<<<<<<< HEAD
+
 		tv_notify_title = (TextView) findViewById(R.id.tv_notify_title);
-=======
-		tv_title = (TextView) findViewById(R.id.tv_title);
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 		tv_content = (TextView) findViewById(R.id.tv_content);
 
 	}
 
 	@Override
 	public void initData() {
-<<<<<<< HEAD
+
 		if (mNotice != null) {
 			if (mNotice.getType().equals("answer")) {
 				tv_system_notify.setText("问答通知");
@@ -75,9 +67,7 @@ public class MsgNotifyDetailActivity extends BaseActivity {
 			}
 			tv_date.setText(mNotice.getTime());
 		}
-=======
-		// TODO Auto-generated method stub
->>>>>>> 4bf5ea73991a31620f795e33af940c8d90a95782
+
 
 	}
 

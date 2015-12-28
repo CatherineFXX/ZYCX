@@ -20,8 +20,6 @@ public class ModelZiXunDetail extends Model {
 	private String cTime;
 	// 更具需要多添加的属性
 	private int fenlei_id;
-	private String lastid; // 上拉加载，最下面资讯的id
-	private String maxid;// 下拉刷新，最上面的资讯id
 
 	public ModelZiXunDetail() {
 		// try {
@@ -102,28 +100,12 @@ public class ModelZiXunDetail extends Model {
 		return serialVersionUID;
 	}
 
-	public String getLastid() {
-		return lastid;
-	}
-
 	public int getFenlei_id() {
 		return fenlei_id;
 	}
 
 	public void setFenlei_id(int fenlei_id) {
 		this.fenlei_id = fenlei_id;
-	}
-
-	public void setLastid(String lastid) {
-		this.lastid = lastid;
-	}
-
-	public String getMaxid() {
-		return maxid;
-	}
-
-	public void setMaxid(String maxid) {
-		this.maxid = maxid;
 	}
 
 	@Override
