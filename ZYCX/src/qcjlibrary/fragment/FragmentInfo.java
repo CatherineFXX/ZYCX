@@ -3,8 +3,10 @@ package qcjlibrary.fragment;
 import android.view.View;
 import qcjlibrary.fragment.base.BaseFragment;
 
-public class FragmentConsultative extends BaseFragment{
+public class FragmentInfo extends BaseFragment{
 
+	
+	
 	@Override
 	public void onClick(View v) {
 		// TODO 自动生成的方法存根
