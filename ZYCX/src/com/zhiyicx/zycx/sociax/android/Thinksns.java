@@ -97,7 +97,7 @@ public class Thinksns extends Application {
 	public void onCreate() {
 		super.onCreate();
 		// JPushInterface.setDebugMode(true);
-		JPushInterface.init(this);
+//		JPushInterface.init(this);
 		/********** qcj 2015-11-6添加 **************************/
 		mApp = this;
 		initImageLoader();

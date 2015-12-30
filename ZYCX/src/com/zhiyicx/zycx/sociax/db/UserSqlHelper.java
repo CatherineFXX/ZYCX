@@ -19,7 +19,8 @@ public class UserSqlHelper extends SqlHelper {
 	private ThinksnsTableSqlHelper handler;
 
 	private UserSqlHelper(Context context) {
-		this.handler = new ThinksnsTableSqlHelper(context, DB_NAME, null, VERSION);
+		this.handler = new ThinksnsTableSqlHelper(context, DB_NAME, null,
+				VERSION);
 	}
 
 	public static UserSqlHelper getInstance(Context context) {

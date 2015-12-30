@@ -75,8 +75,13 @@ public class api {
 	 * @return
 	 */
 	public static RequestParams getTestToken(RequestParams params) {
-		params.add("oauth_token", "18e22c9690b5e01ce224a58f401eb995");
-		params.add("oauth_token_secret", "be826a6243b7f9c0800ac82ce692c2f7");
+		// params.add("oauth_token", "18e22c9690b5e01ce224a58f401eb995");
+		// params.add("oauth_token_secret", "be826a6243b7f9c0800ac82ce692c2f7");
+		PreferenceUtil preferenceUtil = PreferenceUtil.getInstance(Thinksns
+				.getContext());
+		params.add("oauth_token", preferenceUtil.getString("oauth_token", ""));
+		params.add("oauth_token_secret",
+				preferenceUtil.getString("oauth_token_secret", ""));
 		return params;
 	}
 

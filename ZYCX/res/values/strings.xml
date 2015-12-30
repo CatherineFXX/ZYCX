@@ -112,11 +112,12 @@
     <string name="qclass_tab_5">养生抄</string>
 
     <string-array name="site_url">
-        <item>www.qingko.com/</item>
+         /*****测试用这个demo-qingko.zhiyicx.com/****正式用www.qingko.com/***/        <item>demo-qingko.zhiyicx.com/</item>
         <item>/index.php</item>
     </string-array>
+
     <string name="title_activity_bd">BDActivity</string>
- <!-- 下拉刷新 以及上拉加载更多的文字 -->
+    <!-- 下拉刷新 以及上拉加载更多的文字 -->
     <string name="btn_scroll_view">ScrollView demo</string>
     <string name="btn_list_view">ListView demo</string>
     <string name="header_hint_refresh_normal"></string>
@@ -125,17 +126,17 @@
     <string name="header_hint_refresh_time">上次刷新时间：</string>
     <string name="footer_hint_load_normal">加载更多</string>
     <string name="footer_hint_load_ready">加载中</string>
-    
-  <!-- 用药提醒弹出框文字 -->
-  <string name="alert_daily_everydaty">每天</string>
-  <string name="alert_daily_two">每2天</string>
-  <string name="alert_daily_three">每3天</string>
-  <string name="alert_daily_four">每4天</string>
-  <string name="alert_daily_five">每5天</string>
-  <string name="alert_daily_sex">每6天</string>
-  <string name="alert_daily_seven">每7天</string>
-  
-  <string name="alert_time_list_title">设置用药次数</string>
-  <string name="alert_time_username">用户或药品名为空</string>
-  <string name="alert_time_starttime">开始时间不正确</string>
+
+    <!-- 用药提醒弹出框文字 -->
+    <string name="alert_daily_everydaty">每天</string>
+    <string name="alert_daily_two">每2天</string>
+    <string name="alert_daily_three">每3天</string>
+    <string name="alert_daily_four">每4天</string>
+    <string name="alert_daily_five">每5天</string>
+    <string name="alert_daily_sex">每6天</string>
+    <string name="alert_daily_seven">每7天</string>
+    <string name="alert_time_list_title">设置用药次数</string>
+    <string name="alert_time_username">用户或药品名为空</string>
+    <string name="alert_time_starttime">开始时间不正确</string>
+
 </resources>

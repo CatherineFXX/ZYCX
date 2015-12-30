@@ -4,9 +4,12 @@ import org.json.JSONObject;
 
 import qcjlibrary.activity.UserAgreenmentActivity;
 import qcjlibrary.activity.base.BaseActivity;
+import qcjlibrary.model.ModelUser;
 import qcjlibrary.model.base.Model;
+import qcjlibrary.util.ToastUtils;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +36,8 @@ public class RegisterActivity1 extends BaseActivity {
 	private ImageView iv_choose;
 	private TextView tv_user_agreenment;
 
+	private ModelUser mUser;
+
 	@Override
 	public String setCenterTitle() {
 		return "注册";
@@ -40,11 +45,16 @@ public class RegisterActivity1 extends BaseActivity {
 
 	@Override
 	public void initIntent() {
-		// TODO
 		// Intent intent = getIntent();
 		// String type_uid = intent.getStringExtra("type_uid");
 		// String type = intent.getStringExtra("type");
 		// String token = intent.getStringExtra("access_token");
+		Object object = getDataFromIntent(getIntent(), null);
+		if (object instanceof ModelUser) {
+			mUser = (ModelUser) object;
+		} else {
+			mUser = new ModelUser();
+		}
 
 	}
 
@@ -65,6 +75,7 @@ public class RegisterActivity1 extends BaseActivity {
 
 	@Override
 	public void initData() {
+
 	}
 
 	@Override
@@ -87,8 +98,14 @@ public class RegisterActivity1 extends BaseActivity {
 		case R.id.btn_next:
 			if (isAgreen) {
 				// TODO
-				Bundle data = sendDataToBundle(new Model(), null);
-				mApp.startActivity_qcj(this, RegisterActivity2.class, data);
+				String phone = et_mobile.getText().toString();
+				String vetifyCode = et_vertify.getText().toString();
+				if (checkThePhoneAndCode(phone, vetifyCode)) {
+					mUser.setMobile(phone);
+					mUser.setVetifyCode(vetifyCode);
+					mApp.startActivity_qcj(this, RegisterActivity2.class,
+							sendDataToBundle(mUser, null));
+				}
 			}
 
 			break;
@@ -110,6 +127,18 @@ public class RegisterActivity1 extends BaseActivity {
 			break;
 		}
 
+	}
+
+	private boolean checkThePhoneAndCode(String phone, String vetifyCode) {
+		if (TextUtils.isEmpty(phone)) {
+			ToastUtils.showToast("手机号码不能为空");
+			return false;
+		}
+		if (TextUtils.isEmpty(vetifyCode)) {
+			ToastUtils.showToast("验证码不能为空");
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -143,6 +172,7 @@ public class RegisterActivity1 extends BaseActivity {
 
 					@Override
 					public void OnError(String error) {
+
 					}
 				});
 	}

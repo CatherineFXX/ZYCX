@@ -37,6 +37,13 @@ public class ModelUser extends Model {
 	private String city_ids;
 	private String uname;
 	private String avatar;
+	/*************************** 登录注册需要用的 ***************************************/
+	private String mobile; // 手机号码
+	private String pwd; // 密码
+	private String vetifyCode; // 验证码
+	private String type; // 第三方登录需要时用来判断
+	private String type_uid; // 第三方登录的uid
+	private String token; // 第三方登录的token
 
 	public String getOauth_token() {
 		return oauth_token;
@@ -52,6 +59,58 @@ public class ModelUser extends Model {
 
 	public void setOauth_token_secret(String oauth_token_secret) {
 		this.oauth_token_secret = oauth_token_secret;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public String getVetifyCode() {
+		return vetifyCode;
+	}
+
+	public void setVetifyCode(String vetifyCode) {
+		this.vetifyCode = vetifyCode;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getType_uid() {
+		return type_uid;
+	}
+
+	public void setType_uid(String type_uid) {
+		this.type_uid = type_uid;
+	}
+
+	public String getToken() {
+		return token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public String getSex() {
@@ -108,10 +167,6 @@ public class ModelUser extends Model {
 
 	public void setUname(String uname) {
 		this.uname = uname;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 	public String getAvatar() {

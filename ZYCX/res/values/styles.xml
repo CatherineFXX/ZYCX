@@ -89,7 +89,7 @@
         <item name="android:background">@drawable/view_border_gray_white_0</item>
         <item name="android:button">@drawable/radio_button_selector</item>
     </style>
-    
+
     <style name="check_button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">30dp</item>
@@ -101,5 +101,5 @@
         <item name="android:textColor">@color/text_green</item>
         <item name="android:textSize">@dimen/text_common</item>
     </style>
-    
+
 </resources>
