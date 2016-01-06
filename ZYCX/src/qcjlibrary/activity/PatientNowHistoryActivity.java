@@ -12,6 +12,7 @@ import qcjlibrary.model.ModelPop;
 import qcjlibrary.util.DateUtil;
 import qcjlibrary.util.ToastUtils;
 import qcjlibrary.util.localImageHelper.LocalImageManager;
+import qcjlibrary.widget.popupview.PopCommonProgress;
 import qcjlibrary.widget.popupview.PopDatePicker;
 import android.content.Intent;
 import android.text.TextUtils;
@@ -60,6 +61,8 @@ public class PatientNowHistoryActivity extends BaseActivity {
 	private LinearLayout ll_ScrollView1;
 	private LinearLayout ll_ScrollView2;
 	private LinearLayout ll_ScrollView3;
+
+	private PopCommonProgress mProgress;
 
 	@Override
 	public String setCenterTitle() {
@@ -114,6 +117,7 @@ public class PatientNowHistoryActivity extends BaseActivity {
 		Title title = getTitleClass();
 		title.tv_title_right.setOnClickListener(this);
 		mImageManager = LocalImageManager.from(this);
+		mProgress = new PopCommonProgress(this, null, this);
 	}
 
 	@Override
@@ -135,8 +139,8 @@ public class PatientNowHistoryActivity extends BaseActivity {
 			setEditContent();
 			if (checkTheContent()) {
 				ModelAddNowCase addNowCase = addDataToModel();
-				sendRequest(mApp.getMedRecordImpl().savePresent(addNowCase),
-						ModelMsg.class, REQUEST_GET);
+				sendRequest(mApp.getMedRecordImpl().savePresent(addNowCase), ModelMsg.class, REQUEST_POST);
+				ToastUtils.showToast("提交中...");
 			}
 
 			break;
@@ -152,12 +156,10 @@ public class PatientNowHistoryActivity extends BaseActivity {
 			datePicker1.showPop(rl_check_time1, Gravity.BOTTOM, 0, 0);
 			break;
 		case R.id.rl_check_way:
-			mApp.startActivityForResult_qcj(this,
-					ChooseSurgeryWayActivity.class, null);
+			mApp.startActivityForResult_qcj(this, ChooseSurgeryWayActivity.class, null);
 			break;
 		case R.id.rl_lab_check_project:
-			mApp.startActivityForResult_qcj(this, ChooseLabWayActivity.class,
-					null);
+			mApp.startActivityForResult_qcj(this, ChooseLabWayActivity.class, null);
 			break;
 		case R.id.rl_lab_check_time1:
 			PopDatePicker labdatePicker = new PopDatePicker(this, null, this);
@@ -165,8 +167,7 @@ public class PatientNowHistoryActivity extends BaseActivity {
 			labdatePicker.showPop(rl_lab_check_time1, Gravity.BOTTOM, 0, 0);
 			break;
 		case R.id.rl_vedio_check_project:
-			mApp.startActivityForResult_qcj(this, ChooseTreatWayActivity.class,
-					null);
+			mApp.startActivityForResult_qcj(this, ChooseTreatWayActivity.class, null);
 			break;
 		case R.id.rl_vedio_check_time1:
 			PopDatePicker videodatePicker = new PopDatePicker(this, null, this);
@@ -207,50 +208,55 @@ public class PatientNowHistoryActivity extends BaseActivity {
 		return super.onPopResult(object);
 	}
 
+	private boolean isFirst = true;
+
+	@Override
+	public void onResponseProgress(long bytesWritten, long totalSize) {
+		super.onResponseProgress(bytesWritten, totalSize);
+		if (isFirst) {
+			isFirst = false;
+			mProgress.showPop(rl_check_time, Gravity.CENTER, 0, 0);
+			mProgress.setProgress(bytesWritten, totalSize);
+		} else {
+			mProgress.setProgress(bytesWritten, totalSize);
+		}
+	}
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		Object object = getReturnResultSeri(resultCode, data,
-				Config.TYPE_CHECK_WAY);
+		Object object = getReturnResultSeri(resultCode, data, Config.TYPE_CHECK_WAY);
 		if (object instanceof String) {
 			tv_check_way_name.setText(object.toString());
 			diagnosis_way = object.toString();
 		}
-		Object object1 = getReturnResultSeri(resultCode, data,
-				Config.TYPE_LAB_PROJECT);
+		Object object1 = getReturnResultSeri(resultCode, data, Config.TYPE_LAB_PROJECT);
 		if (object1 instanceof String) {
 			tv_lab_check_time_project.setText(object1.toString());
 			lab_exam_program = object1.toString();
 		}
-		Object object2 = getReturnResultSeri(resultCode, data,
-				Config.TYPE_VIDEO_PROJECT);
+		Object object2 = getReturnResultSeri(resultCode, data, Config.TYPE_VIDEO_PROJECT);
 		if (object2 instanceof String) {
 			tv_vedio_check_time_project.setText(object2.toString());
 			image_exam_program = object2.toString();
 		}
-		Object photolist1 = getReturnResultSeri(resultCode, data,
-				Config.TYPE_CHECK_PHOTO);
+		Object photolist1 = getReturnResultSeri(resultCode, data, Config.TYPE_CHECK_PHOTO);
 		if (photolist1 instanceof List<?>) {
 			List<String> lists = (List<String>) photolist1;
 			Log.i("photolist", lists.toString());
-			addDataAndDisplay(ll_ScrollView1, mPhotoList1, lists,
-					Config.TYPE_CHECK_PHOTO);
+			addDataAndDisplay(ll_ScrollView1, mPhotoList1, lists, Config.TYPE_CHECK_PHOTO);
 		}
-		Object photolist2 = getReturnResultSeri(resultCode, data,
-				Config.TYPE_LAB_PHOTO);
+		Object photolist2 = getReturnResultSeri(resultCode, data, Config.TYPE_LAB_PHOTO);
 		if (photolist2 instanceof List<?>) {
 			List<String> lists = (List<String>) photolist2;
 			Log.i("photolist", lists.toString());
-			addDataAndDisplay(ll_ScrollView2, mPhotoList2, lists,
-					Config.TYPE_LAB_PHOTO);
+			addDataAndDisplay(ll_ScrollView2, mPhotoList2, lists, Config.TYPE_LAB_PHOTO);
 		}
-		Object photolist3 = getReturnResultSeri(resultCode, data,
-				Config.TYPE_VIDEO_PHOTO);
+		Object photolist3 = getReturnResultSeri(resultCode, data, Config.TYPE_VIDEO_PHOTO);
 		if (photolist3 instanceof List<?>) {
 			List<String> lists = (List<String>) photolist3;
 			Log.i("photolist", lists.toString());
-			addDataAndDisplay(ll_ScrollView3, mPhotoList3, lists,
-					Config.TYPE_VIDEO_PHOTO);
+			addDataAndDisplay(ll_ScrollView3, mPhotoList3, lists, Config.TYPE_VIDEO_PHOTO);
 		}
 	}
 
@@ -260,8 +266,7 @@ public class PatientNowHistoryActivity extends BaseActivity {
 	 * @param totaldata
 	 * @param data
 	 */
-	public void addDataAndDisplay(LinearLayout parent, List<String> totaldata,
-			List<String> data, String returntype) {
+	public void addDataAndDisplay(LinearLayout parent, List<String> totaldata, List<String> data, String returntype) {
 		if (parent != null && totaldata != null && data != null) {
 			for (String str : data) {
 				if (parent.getChildCount() >= 6) {
@@ -287,9 +292,6 @@ public class PatientNowHistoryActivity extends BaseActivity {
 	private String image_exam_time;// 影像学检查时间
 	private String image_exam_hospital; // 影像学检查医院
 	// 图片文件上传
-	private String diagnosis; // 诊断图片
-	private String lab_exam;// 实验室检查图片
-	private String image_exam; // 影像学检查图片
 
 	/**
 	 * 设置输入框的内容
@@ -368,6 +370,9 @@ public class PatientNowHistoryActivity extends BaseActivity {
 		addCase.setImage_exam_program(image_exam_program);
 		addCase.setImage_exam_time(image_exam_time);
 		addCase.setImage_exam_hospital(image_exam_hospital);
+		addCase.setDiagnosisList(mPhotoList1);
+		addCase.setLab_examList(mPhotoList2);
+		addCase.setImage_examList(mPhotoList3);
 		// 图片待添加
 		return addCase;
 	}
@@ -382,16 +387,13 @@ public class PatientNowHistoryActivity extends BaseActivity {
 	private ArrayList<String> mPhotoList2 = new ArrayList<String>();
 	private ArrayList<String> mPhotoList3 = new ArrayList<String>();
 
-	private void addImageToHsv(String path, int type,
-			final LinearLayout parent, final String returnType) {
+	private void addImageToHsv(String path, int type, final LinearLayout parent, final String returnType) {
 		View itemView = mInflater.inflate(R.layout.hsv_img_item, null);
 		ImageView big_image = (ImageView) itemView.findViewById(R.id.big_image);
-		ImageView delete_image = (ImageView) itemView
-				.findViewById(R.id.delete_image);
+		ImageView delete_image = (ImageView) itemView.findViewById(R.id.delete_image);
 		if (type == PHOTO) {
 			if (path != null) {
-				mImageManager.displayImage(big_image, path,
-						R.drawable.default_image_small, 100, 100);
+				mImageManager.displayImage(big_image, path, R.drawable.default_image_small, 100, 100);
 				delete_image.setTag(itemView);
 				parent.addView(itemView);
 				changeThePosition(parent, itemView);
@@ -413,9 +415,7 @@ public class PatientNowHistoryActivity extends BaseActivity {
 
 				@Override
 				public void onClick(View v) {
-					mApp.startActivityForResult_qcj(
-							PatientNowHistoryActivity.this,
-							LocalImagListActivity.class,
+					mApp.startActivityForResult_qcj(PatientNowHistoryActivity.this, LocalImagListActivity.class,
 							sendDataToBundle(returnType, null));
 				}
 			});

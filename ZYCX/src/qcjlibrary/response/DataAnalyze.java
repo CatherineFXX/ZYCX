@@ -9,6 +9,8 @@ import qcjlibrary.util.JsonUtils;
 
 import com.google.gson.Gson;
 
+import android.util.Log;
+
 /**
  * author：qiuchunjia time：下午2:44:40
  * 
@@ -32,6 +34,7 @@ public class DataAnalyze {
 	public static Object parseData(String str, Class classType) {
 
 		if (str != null) {
+			Log.i("parseData", str);
 			try {
 				JSONObject jsonObject = new JSONObject(str);
 				// 如果只想想获取modelmsg类型就直接返回
@@ -82,6 +85,7 @@ public class DataAnalyze {
 	@SuppressWarnings("unchecked")
 	public static Object parseDataByGson(String str, Class classType) {
 		if (str != null) {
+			Log.i("parseDataByGson", str);
 			try {
 				JSONObject jsonObject = new JSONObject(str);
 				// 如果只想想获取modelmsg类型就直接返回

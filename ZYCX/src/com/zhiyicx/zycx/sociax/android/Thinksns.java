@@ -548,7 +548,7 @@ public class Thinksns extends Application {
 	 */
 	public File getImagePath() {
 		File cacheDir = StorageUtils.getOwnCacheDirectory(
-				getApplicationContext(), "association/image");
+				getApplicationContext(), "qingke/image");
 		return cacheDir;
 	}
 

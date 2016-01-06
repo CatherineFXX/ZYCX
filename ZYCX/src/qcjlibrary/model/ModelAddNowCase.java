@@ -1,5 +1,7 @@
 package qcjlibrary.model;
 
+import java.util.List;
+
 import qcjlibrary.model.base.Model;
 
 /**
@@ -38,9 +40,11 @@ public class ModelAddNowCase extends Model {
 	private String image_exam_program;
 	private String image_exam_time;
 	private String image_exam_hospital;
-	private String diagnosis;
-	private String lab_exam;
-	private String image_exam;
+	private List<String> diagnosisList;
+	private List<String> lab_examList;
+	private List<String> image_examList;
+	
+	private List<ModelCaseResult> result;
 
 	public String getDiagnosis_stime() {
 		return diagnosis_stime;
@@ -106,28 +110,28 @@ public class ModelAddNowCase extends Model {
 		this.image_exam_program = image_exam_program;
 	}
 
-	public String getDiagnosis() {
-		return diagnosis;
+	public List<String> getDiagnosisList() {
+		return diagnosisList;
 	}
 
-	public void setDiagnosis(String diagnosis) {
-		this.diagnosis = diagnosis;
+	public void setDiagnosisList(List<String> diagnosisList) {
+		this.diagnosisList = diagnosisList;
 	}
 
-	public String getLab_exam() {
-		return lab_exam;
+	public List<String> getLab_examList() {
+		return lab_examList;
 	}
 
-	public void setLab_exam(String lab_exam) {
-		this.lab_exam = lab_exam;
+	public void setLab_examList(List<String> lab_examList) {
+		this.lab_examList = lab_examList;
 	}
 
-	public String getImage_exam() {
-		return image_exam;
+	public List<String> getImage_examList() {
+		return image_examList;
 	}
 
-	public void setImage_exam(String image_exam) {
-		this.image_exam = image_exam;
+	public void setImage_examList(List<String> image_examList) {
+		this.image_examList = image_examList;
 	}
 
 	public static long getSerialversionuid() {
@@ -150,4 +154,13 @@ public class ModelAddNowCase extends Model {
 		this.image_exam_hospital = image_exam_hospital;
 	}
 
+	public List<ModelCaseResult> getResult() {
+		return result;
+	}
+
+	public void setResult(List<ModelCaseResult> result) {
+		this.result = result;
+	}
+
+	
 }

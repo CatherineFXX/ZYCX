@@ -3,7 +3,7 @@ package qcjlibrary.api;
 import qcjlibrary.model.ModelAddCase;
 import qcjlibrary.model.ModelAddHistoryCase;
 import qcjlibrary.model.ModelAddNowCase;
-import qcjlibrary.model.ModelCasePresent;
+import qcjlibrary.model.ModelCaseResult;
 import qcjlibrary.model.ModelCaseRecord;
 
 import com.loopj.android.http.RequestParams;

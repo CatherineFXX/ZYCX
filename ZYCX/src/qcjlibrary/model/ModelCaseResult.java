@@ -7,7 +7,7 @@ import qcjlibrary.model.base.Model;
  *
  */
 
-public class ModelCasePresent extends Model {
+public class ModelCaseResult extends Model {
 	/**
 	 * 
 	 */

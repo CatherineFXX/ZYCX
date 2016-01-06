@@ -1,25 +1,30 @@
 package qcjlibrary.fragment;
 
+import org.apache.http.Header;
+
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.zhiyicx.zycx.R;
+
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import qcjlibrary.activity.CaseHistoryActivity;
 import qcjlibrary.activity.FoodWayActivity;
 import qcjlibrary.activity.PatientMeActivity;
 import qcjlibrary.activity.UseMedicineNotifyActivity;
 import qcjlibrary.fragment.base.BaseFragment;
 import qcjlibrary.model.ModelCaseIndex;
-import qcjlibrary.model.base.Model;
-
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import com.zhiyicx.zycx.R;
+import qcjlibrary.request.base.Request;
+import qcjlibrary.util.ToastUtils;
 
 /**
  * author：qiuchunjia time：下午4:03:45 类描述：这个类是实现
  */
 
 public class FragmentCaseIndex extends BaseFragment {
+
     private RelativeLayout rl_mycase;
     private RelativeLayout rl_down;
     private RelativeLayout rl_history;

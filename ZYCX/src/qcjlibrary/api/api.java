@@ -7,7 +7,7 @@ import java.util.List;
 import qcjlibrary.model.ModelAddCase;
 import qcjlibrary.model.ModelAddHistoryCase;
 import qcjlibrary.model.ModelAddNowCase;
-import qcjlibrary.model.ModelCasePresent;
+import qcjlibrary.model.ModelCaseResult;
 import qcjlibrary.model.ModelCaseRecord;
 import qcjlibrary.model.ModelExperience;
 import qcjlibrary.model.ModelExperienceDetailItem1;
@@ -241,7 +241,7 @@ public class api {
 			params.add(CONTENT, detail.getSendContent());
 			return getTestToken(params);
 		}
-		
+
 	}
 	
 	public static final class PeriodicalImpl implements PeriodicalIm{
@@ -840,9 +840,43 @@ public class api {
 				params.add(IMAGE_EXAM_PROGRAM, nowCase.getImage_exam_program());
 				params.add(IMAGE_EXAM_TIME, nowCase.getImage_exam_time());
 				params.add(IMAGE_EXAM_HOSPITAL, nowCase.getImage_exam_hospital());
-				params.add(DIAGNOSIS, nowCase.getDiagnosis());
-				params.add(LAB_EXAM, nowCase.getLab_exam());
-				params.add(IMAGE_EXAM, nowCase.getImage_exam());
+				if (nowCase.getDiagnosisList() != null) {
+					List<String> data = nowCase.getDiagnosisList();
+					for (int i = 0; i < data.size(); i++) {
+						File file=new File(data.get(i));
+						try {
+							params.put(DIAGNOSIS + i, file);
+						} catch (FileNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+				if (nowCase.getLab_examList() != null) {
+					List<String> data = nowCase.getLab_examList();
+					for (int i = 0; i < data.size(); i++) {
+						File file=new File(data.get(i));
+						try {
+							params.put(LAB_EXAM + i, file);
+						} catch (FileNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+				if (nowCase.getImage_examList() != null) {
+					List<String> data = nowCase.getImage_examList();
+					for (int i = 0; i < data.size(); i++) {
+						File file=new File(data.get(i));
+						try {
+							params.put(IMAGE_EXAM + i, file);
+						} catch (FileNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+				Log.i("savePresent", params.toString());
 				getTestToken(params);
 				return params;
 			}

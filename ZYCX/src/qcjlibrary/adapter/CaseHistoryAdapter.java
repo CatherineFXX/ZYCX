@@ -6,7 +6,7 @@ import qcjlibrary.activity.base.BaseActivity;
 import qcjlibrary.adapter.base.BAdapter;
 import qcjlibrary.adapter.base.ViewHolder;
 import qcjlibrary.fragment.base.BaseFragment;
-import qcjlibrary.model.ModelCasePresent;
+import qcjlibrary.model.ModelCaseResult;
 import qcjlibrary.model.ModelCaseRecord;
 import qcjlibrary.model.base.Model;
 import qcjlibrary.response.DataAnalyze;

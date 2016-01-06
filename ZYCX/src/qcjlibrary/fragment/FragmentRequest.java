@@ -56,7 +56,6 @@ public class FragmentRequest extends BaseFragment{
 		mCommonListView.setDividerHeight(DisplayUtils.dp2px(mApp, 10));
 		
 	}
-
 	@Override
 	public void initListener() {
 		

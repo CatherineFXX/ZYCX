@@ -101,14 +101,14 @@
         <item name="android:textColor">@color/text_green</item>
         <item name="android:textSize">@dimen/text_common</item>
     </style>
-    
+
     <style name="qclass_tab">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:textSize">@dimen/text_common</item>
         <item name="android:gravity">center</item>
     </style>
-    
+
     <style name="qclass_cmd_send">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -127,6 +127,20 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
         <item name="android:gravity">center</item>
+    </style>
+
+    <style name="pop_anim_style_up_and_down">
+        <item name="android:windowEnterAnimation">@anim/pop_ver_up</item>
+        <item name="android:windowExitAnimation">@anim/pop_ver_down</item>
+    </style>
+      <style name="pop_anim_style_down_and_up">
+        <item name="android:windowEnterAnimation">@anim/pop_enter</item>
+        <item name="android:windowExitAnimation">@anim/pop_out</item>
+    </style>
+
+    <style name="pop_anim_style_left_and_right">
+        <item name="android:windowEnterAnimation">@anim/pop_hor_left</item>
+        <item name="android:windowExitAnimation">@anim/pop_hor_right</item>
     </style>
 
     <style name="share_textview" parent="qclass_cmd_send">

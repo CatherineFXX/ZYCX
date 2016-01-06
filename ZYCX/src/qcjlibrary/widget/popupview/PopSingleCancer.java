@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.zhiyicx.zycx.R;
@@ -64,6 +65,10 @@ public class PopSingleCancer extends PopView {
 			tv_cancer_content.setText(infor.getIntro());
 		}
 
+	}
+	@Override
+	public void setAnimationStyle(PopupWindow popupWindow) {
+		popupWindow.setAnimationStyle(R.style.pop_anim_style_down_and_up);
 	}
 
 	@Override

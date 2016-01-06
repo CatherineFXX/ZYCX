@@ -1,6 +1,6 @@
 package qcjlibrary.widget.popupview.base;
 
-import com.umeng.socialize.utils.Log;
+import com.zhiyicx.zycx.R;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -39,8 +39,7 @@ public abstract class PopView implements PopInterface {
 	 * @param xml
 	 *            布局文件
 	 */
-	public PopView(Activity activity, Object object,
-			PopResultListener resultListener) {
+	public PopView(Activity activity, Object object, PopResultListener resultListener) {
 		this.mActivity = activity;
 		this.mInflater = LayoutInflater.from(mActivity);
 		this.mData = object;
@@ -48,10 +47,7 @@ public abstract class PopView implements PopInterface {
 		initPopWindow();
 	}
 
-	
-	
-	public PopView(Context context,Object object,
-			PopResultListener mResultListener) {
+	public PopView(Context context, Object object, PopResultListener mResultListener) {
 		this.mActivity = (Activity) context;
 		this.mInflater = LayoutInflater.from(context);
 		this.mData = object;
@@ -59,11 +55,9 @@ public abstract class PopView implements PopInterface {
 		initPopWindow();
 	}
 
-
-
 	/**
 	 * 初始化popWindow
-	 * */
+	 */
 	/**
 	 * @param xml
 	 */
@@ -83,6 +77,18 @@ public abstract class PopView implements PopInterface {
 			initPopView();
 			initPopData(mData);
 			setPopLisenter(mResultListener);
+			setAnimationStyle(mPopWindow);
+		}
+	}
+
+	/**
+	 * 设置pop的动画
+	 * 
+	 * @param popupWindow
+	 */
+	public void setAnimationStyle(PopupWindow popupWindow) {
+		if (popupWindow != null) {
+			mPopWindow.setAnimationStyle(R.style.pop_anim_style_up_and_down);
 		}
 	}
 
@@ -93,20 +99,17 @@ public abstract class PopView implements PopInterface {
 	 * @return
 	 */
 	public PopupWindow setPopWidthAndHeight(View dataView) {
-		PopupWindow popupWindow = new PopupWindow(dataView,
-				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		PopupWindow popupWindow = new PopupWindow(dataView, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		return popupWindow;
 	}
 
 	public PopupWindow setPopWidthAndHeight2(View dataView) {
-		PopupWindow popupWindow = new PopupWindow(dataView,
-				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		PopupWindow popupWindow = new PopupWindow(dataView, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		return popupWindow;
 	}
 
 	public PopupWindow setPopWidthAndHeight3(View dataView) {
-		PopupWindow popupWindow = new PopupWindow(dataView,
-				LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+		PopupWindow popupWindow = new PopupWindow(dataView, LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
 		return popupWindow;
 	}
 
@@ -133,7 +136,7 @@ public abstract class PopView implements PopInterface {
 
 	/**
 	 * 显示popWindow
-	 * */
+	 */
 	@SuppressLint("NewApi")
 	public void showPop(View parent, int gravity, int x, int y) {
 		if (mPopWindow != null) {
@@ -159,8 +162,7 @@ public abstract class PopView implements PopInterface {
 	 */
 	public void setWindowAlpha(float alpha) {
 		if (mActivity != null) {
-			WindowManager.LayoutParams params = mActivity.getWindow()
-					.getAttributes();
+			WindowManager.LayoutParams params = mActivity.getWindow().getAttributes();
 			params.alpha = alpha;
 			mActivity.getWindow().setAttributes(params);
 		}
@@ -179,5 +181,5 @@ public abstract class PopView implements PopInterface {
 		 */
 		Object onPopResult(Object object);
 	}
-	
+
 }

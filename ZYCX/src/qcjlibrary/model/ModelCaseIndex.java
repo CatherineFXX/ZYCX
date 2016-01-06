@@ -10,8 +10,11 @@ import qcjlibrary.model.base.Model;
 public class ModelCaseIndex extends Model {
 
 	/**
-	 * "realname": "方三电费", "sex": "男", "age": "12", "ctime": "12月22日 17:58",
-	 * "utime": "12月23日 18:05"
+	 * {"data":{"realname":"fdsaf","sex":"\u7537","age":"fdaf","ctime":"2015-12-30 14:30",
+	 * "utime":"\u4eca\u592915:41",
+	 * 
+	 * "url":"http:\/\/qingko-img.b0.upaiyun.com\/568b73bbe029f.jpg"},"message":"ok","code":0}
+
 	 */
 	private static final long serialVersionUID = 1L;
 	private String realname;
@@ -19,6 +22,7 @@ public class ModelCaseIndex extends Model {
 	private String age;
 	private String ctime;
 	private String utime;
+	private String url;
 
 	public String getRealname() {
 		return realname;
@@ -63,5 +67,14 @@ public class ModelCaseIndex extends Model {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+	
 
 }

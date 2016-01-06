@@ -1,7 +1,5 @@
 package qcjlibrary.model;
 
-import java.util.List;
-
 import qcjlibrary.model.base.Model;
 
 /**
@@ -16,7 +14,7 @@ public class ModelMyCaseIndex extends Model {
 	private static final long serialVersionUID = 1L;
 	private ModelAddCase info;
 	private ModelAddHistoryCase history;
-	private List<ModelMyCaseIndex> present;
+	private ModelAddNowCase present;
 
 	public ModelAddCase getInfo() {
 		return info;
@@ -34,11 +32,12 @@ public class ModelMyCaseIndex extends Model {
 		this.history = history;
 	}
 
-	public List<ModelMyCaseIndex> getPresent() {
+
+	public ModelAddNowCase getPresent() {
 		return present;
 	}
 
-	public void setPresent(List<ModelMyCaseIndex> present) {
+	public void setPresent(ModelAddNowCase present) {
 		this.present = present;
 	}
 

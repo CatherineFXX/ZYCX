@@ -82,7 +82,10 @@ public class PopCancerCategory extends PopView {
 			});
 		}
 	}
-
+	@Override
+	public void setAnimationStyle(PopupWindow popupWindow) {
+		popupWindow.setAnimationStyle(R.style.pop_anim_style_left_and_right);
+	}
 	@Override
 	public void setPopLisenter(PopResultListener listener) {
 		// TODO Auto-generated method stub
