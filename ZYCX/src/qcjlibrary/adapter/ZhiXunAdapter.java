@@ -200,7 +200,7 @@ public class ZhiXunAdapter extends BAdapter {
         int visibleLastPosi = listView.getLastVisiblePosition(); 
         ModelZiXunDetail data = (ModelZiXunDetail) mList.get(posi);
         if (posi >= visibleFirstPosi && posi <= visibleLastPosi) {  
-            View view = listView.getChildAt(posi - visibleFirstPosi);  
+            View view = listView.getChildAt(posi - visibleFirstPosi + 1);  
             ViewHolder holder = (ViewHolder) view.getTag(); 
             int readCount = 0;
             try{
@@ -212,7 +212,7 @@ public class ZhiXunAdapter extends BAdapter {
             	return;
             }
             ++readCount;  
-            data.setReadCount(readCount+"");;
+            data.setReadCount(readCount+"");
             holder.tv_num.setText(readCount+"");
             mList.set(posi, data);  
         } else {  

@@ -52,7 +52,7 @@
             <ImageView
                 android:id="@+id/iv_choose1"
                 style="@style/text_index"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="1dp"
                 android:src="@drawable/index_hot_question" />
 
             <TextView
@@ -75,7 +75,7 @@
             <ImageView
                 android:id="@+id/iv_choose2"
                 style="@style/text_index"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="1dp"
                 android:src="@drawable/index_exprest_say" />
 
             <TextView
@@ -98,7 +98,7 @@
             <ImageView
                 android:id="@+id/iv_choose3"
                 style="@style/text_index"
-                android:layout_marginTop="0dp"
+                android:layout_marginTop="1dp"
                 android:src="@drawable/index_cook" />
 
             <TextView

@@ -207,7 +207,7 @@ public class QclassAdapter extends BAdapter {
             }
             ++watch_num;  
             data.setWatch_num(watch_num);
-            holder.tv_num.setText(watch_num+"");
+//            holder.tv_num.setText(watch_num+"");
             mList.set(posi, data);  
         } else {  
         	int watch_num = data.getWatch_num();  

@@ -68,6 +68,7 @@ public class SettingOneLineEditActivity extends BaseActivity {
 			height = 160;
 			if(intro != null){
 				et_oneline.setText(intro);
+				et_oneline.setSelection(intro.length());
 			}
 		}
 		params = new LayoutParams(LayoutParams.MATCH_PARENT,height);
@@ -75,6 +76,7 @@ public class SettingOneLineEditActivity extends BaseActivity {
 		if(mCurrentPosition == NICK){
 			if(uname != null){
 				et_oneline.setText(uname);
+				et_oneline.setSelection(uname.length());
 			}
 		}
 		

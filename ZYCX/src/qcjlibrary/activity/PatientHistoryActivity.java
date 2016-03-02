@@ -179,7 +179,7 @@ public class PatientHistoryActivity extends BaseActivity {
 			family_history = history.getFamily_history();
 			sex = history.getSex();
 			//设置数据
-			if(sex.equals("0")){
+			if(sex != null && sex.equals("0")){
 				rl_first.setVisibility(View.GONE);
 				rl_last_time.setVisibility(View.GONE);
 				rl_stop_yuejin.setVisibility(View.GONE);

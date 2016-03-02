@@ -62,7 +62,7 @@ public class FragmentZiXunList extends BaseFragment {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				posi = position;
-//				mAdapter.updataView(posi - 1,mCommonListView);
+				mAdapter.updataView(posi - 1,mCommonListView);
 				mCommonListView.stepToNextActivity(parent, view, position, ZiXUnContentActivity.class);
 			}
 		});
