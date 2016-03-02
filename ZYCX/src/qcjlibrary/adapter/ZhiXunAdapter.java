@@ -7,6 +7,8 @@ import qcjlibrary.adapter.base.BAdapter;
 import qcjlibrary.adapter.base.ViewHolder;
 import qcjlibrary.api.api.ZhiXunImpl;
 import qcjlibrary.fragment.base.BaseFragment;
+import qcjlibrary.listview.base.CommonListView;
+import qcjlibrary.model.ModelQclassDetail;
 import qcjlibrary.model.ModelZiXun;
 import qcjlibrary.model.ModelZiXunDetail;
 import qcjlibrary.model.base.Model;
@@ -187,5 +189,43 @@ public class ZhiXunAdapter extends BAdapter {
 		}
 		return null;
 	}
+	
+	/**
+	 * 更新部分数据
+	 * 暂时不更新
+	 * **/
+	
+	public void updataView(int posi, CommonListView listView) {  
+        int visibleFirstPosi = listView.getFirstVisiblePosition();  
+        int visibleLastPosi = listView.getLastVisiblePosition(); 
+        ModelZiXunDetail data = (ModelZiXunDetail) mList.get(posi);
+        if (posi >= visibleFirstPosi && posi <= visibleLastPosi) {  
+            View view = listView.getChildAt(posi - visibleFirstPosi);  
+            ViewHolder holder = (ViewHolder) view.getTag(); 
+            int readCount = 0;
+            try{
+            	readCount = Integer.parseInt(data.getReadCount());
+            } catch(Exception e){
+            	
+            }
+            if(readCount > 999 || holder == null){
+            	return;
+            }
+            ++readCount;  
+            data.setReadCount(readCount+"");;
+            holder.tv_num.setText(readCount+"");
+            mList.set(posi, data);  
+        } else {  
+        	int readCount = 0;
+            try{
+            	readCount = Integer.parseInt(data.getReadCount());
+            } catch(Exception e){
+            	
+            }  
+        	++readCount;  
+        	data.setReadCount(readCount+"");
+            mList.set(posi, data);  
+        }  
+    } 
 
 }

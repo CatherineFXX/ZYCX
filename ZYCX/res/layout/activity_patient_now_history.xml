@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_left_small"
                 android:layout_marginTop="@dimen/margin_left_small"
-                android:text="诊断过程"
+                android:text="治疗过程"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/text_very_big" />
 
@@ -39,7 +39,7 @@
                     android:id="@+id/tv_check_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="诊断起始时间"
+                    android:text="治疗起始时间"
                     android:textColor="@color/text_black"
                     android:textSize="@dimen/text_common" />
 
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tv_check_way"
                     android:layout_marginTop="@dimen/margin_top"
-                    android:hint="请选择诊断方式"
+                    android:hint="请选择治疗方式"
                     android:textColor="@color/text_black"
                     android:textSize="@dimen/text_common" />
 

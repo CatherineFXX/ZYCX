@@ -354,7 +354,7 @@ public class PatientMeActivity extends BaseActivity {
 				tv_time.setVisibility(View.GONE);
 				ll_now.addView(item);
 				ModelDiagnosis diagnosis = present.getDiagnosis();
-				tv_title.setText("诊断过程");
+				tv_title.setText("治疗过程");
 				tv_time.setText("开始时间:" + diagnosis.getDiagnosis_stime());
 				tv_hospital.setText("医院:" + diagnosis.getDiagnosis_hospital());
 				setResultView(diagnosis_result, ll_present_result);

@@ -38,6 +38,8 @@ public class FragmentQclassList extends BaseFragment{
 	private ModelQclassDetail detail;
 	private QclassImpl qclassImpl;
 	private boolean isCreate = false;
+	/** 点击的位置**/
+	private int posi;
 	
 	public FragmentQclassList newInstanse(int type){
 		FragmentQclassList f = new FragmentQclassList();
@@ -90,6 +92,8 @@ public class FragmentQclassList extends BaseFragment{
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				posi = position;
+//				mAdapter.updataView(posi - 1,mCommonListView);
 				mCommonListView.stepToNextActivity(parent, view, position, 
 						QClassDetailsActivity.class);
 			}
@@ -152,6 +156,16 @@ public class FragmentQclassList extends BaseFragment{
 		// TODO 自动生成的方法存根
 		super.onCreate(savedInstanceState);
 		isCreate = true;
+	}
+	
+	@Override
+	public void onResume() {
+		// TODO 自动生成的方法存根
+		super.onResume();
+//		if(mAdapter != null 
+//				&& mAdapter.mList.size() > 0){
+//			mAdapter.refreshNew();;
+//		}
 	}
 	
 }

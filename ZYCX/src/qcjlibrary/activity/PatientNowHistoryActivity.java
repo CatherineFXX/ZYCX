@@ -72,6 +72,8 @@ public class PatientNowHistoryActivity extends BaseActivity {
 	private TimePickerView pvTime;
 	/** 不同时间选择框的类型**/
 	private String timeType;
+	private Date sDate;
+	private Date eDate;
 
 	@Override
 	public String setCenterTitle() {
@@ -148,9 +150,11 @@ public class PatientNowHistoryActivity extends BaseActivity {
 			@Override
 			public void onTimeSelect(Date date) {
 				if(timeType.equals(Config.TYPE_CHECK_START_TIME)){
+					sDate = date;
 					diagnosis_stime = DateUtil.DateToStamp(date);
 					tv_check_time_name.setText(DateUtil.strTodate(diagnosis_stime));
 				} else if(timeType.equals(Config.TYPE_CHECK_END_TIME)){
+					eDate = date;
 					diagnosis_etime = DateUtil.DateToStamp(date);
 					tv_check_end_time_name.setText(DateUtil.strTodate(diagnosis_etime));
 				} else if(timeType.equals(Config.TYPE_LAB_CHECK_TIME)){
@@ -372,6 +376,10 @@ public class PatientNowHistoryActivity extends BaseActivity {
 		}
 		if (TextUtils.isEmpty(diagnosis_etime)) {
 			ToastUtils.showToast("请选择诊断结束时间");
+			return false;
+		}
+		if(DateUtil.compareDate(sDate, eDate)){
+			ToastUtils.showToast("起始时间不可大于结束时间");
 			return false;
 		}
 		if (TextUtils.isEmpty(diagnosis_hospital)) {

@@ -19,6 +19,7 @@ import qcjlibrary.widget.popupview.PopChooseGender;
 import qcjlibrary.widget.popupview.PopDatePicker;
 import qcjlibrary.widget.popupview.PopUploadIcon;
 import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
@@ -55,6 +56,7 @@ public class MeCenterBasicActivity extends BaseActivity {
 	private TextView tv_category_value;
 	/** 年月日时间选择框 **/
 	private TimePickerView pvTime;
+	private Bundle bundle;
 
 	@Override
 	public String setCenterTitle() {
@@ -98,6 +100,7 @@ public class MeCenterBasicActivity extends BaseActivity {
 
 	@Override
 	public void initData() {
+		bundle = new Bundle();
 	}
 
 	@Override
@@ -132,6 +135,8 @@ public class MeCenterBasicActivity extends BaseActivity {
 			} else {
 				tv_category_value.setText("暂无");
 			}
+			bundle.putSerializable("intro", user.getIntro());
+			bundle.putSerializable("name", user.getUname());
 		}
 	}
 
@@ -192,12 +197,14 @@ public class MeCenterBasicActivity extends BaseActivity {
 			break;
 
 		case R.id.rl_mycase:
+			bundle.putInt("type", SettingOneLineEditActivity.DECLARATION);
 			mApp.startActivity_qcj(this, SettingOneLineEditActivity.class,
-					sendDataToBundle(SettingOneLineEditActivity.DECLARATION, null));
+					bundle);
 			break;
 		case R.id.rl_nick:
+			bundle.putInt("type", SettingOneLineEditActivity.NICK);
 			mApp.startActivity_qcj(this, SettingOneLineEditActivity.class,
-					sendDataToBundle(SettingOneLineEditActivity.NICK, null));
+					bundle);
 			break;
 		case R.id.rl_gender:
 			PopChooseGender chooseGender = new PopChooseGender(this, null, this);
@@ -212,8 +219,9 @@ public class MeCenterBasicActivity extends BaseActivity {
 			mApp.startActivityForResult_qcj(this, MeChooseProvinceActivity.class, null);
 			break;
 		case R.id.rl_cancer_category:
+			bundle.putInt("type", SettingOneLineEditActivity.CANCERCATEGORY);
 			mApp.startActivity_qcj(this, MeChooseCancerActivity.class,
-					sendDataToBundle(SettingOneLineEditActivity.CANCERCATEGORY, null));
+					bundle);
 			break;
 		}
 

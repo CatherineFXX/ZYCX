@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -57,7 +58,6 @@ public class PatientHistoryActivity extends BaseActivity {
 	private RelativeLayout rl_stop_drink;
 	private TextView tv_stop_drink_name;
 	private EditText et_first;
-	private RelativeLayout rl_last_time;
 	private TextView tv_last_time_name;
 	private EditText et_stop_yuejins;
 	private RelativeLayout rl_children;
@@ -72,7 +72,11 @@ public class PatientHistoryActivity extends BaseActivity {
 	private RelativeLayout rl_drink_year;
 	private RelativeLayout rl_drink_much;
 	private RelativeLayout rl_first;
+	private RelativeLayout rl_last_time;
 	private RelativeLayout rl_stop_yuejin;
+	private LinearLayout ll_line_02;
+	private LinearLayout ll_line_01;
+	private LinearLayout ll_line_03;
 	private ModelUser modelUser;
 	
 	private TimePickerView pvTime;
@@ -134,6 +138,10 @@ public class PatientHistoryActivity extends BaseActivity {
 		rl_first = (RelativeLayout) findViewById(R.id.rl_first);
 		rl_stop_yuejin = (RelativeLayout) findViewById(R.id.rl_stop_yuejin);
 		
+		ll_line_01 = (LinearLayout) findViewById(R.id.ll_line_01);
+		ll_line_02 = (LinearLayout) findViewById(R.id.ll_line_02);
+		ll_line_03 = (LinearLayout) findViewById(R.id.ll_line_03);
+		
 		pvTime = new TimePickerView(this, TimePickerView.Type.YEAR_MONTH_DAY);
 		pvTime.setTime(new Date());
 		pvTime.setCyclic(true);
@@ -169,7 +177,23 @@ public class PatientHistoryActivity extends BaseActivity {
 			amenorrhoea_age = history.getAmenorrhoea_age();
 			childs = history.getChilds();
 			family_history = history.getFamily_history();
+			sex = history.getSex();
 			//设置数据
+			if(sex.equals("0")){
+				rl_first.setVisibility(View.GONE);
+				rl_last_time.setVisibility(View.GONE);
+				rl_stop_yuejin.setVisibility(View.GONE);
+				ll_line_01.setVisibility(View.GONE);
+				ll_line_02.setVisibility(View.GONE);
+				ll_line_03.setVisibility(View.GONE);
+			} else{
+				rl_first.setVisibility(View.VISIBLE);
+				rl_last_time.setVisibility(View.VISIBLE);
+				rl_stop_yuejin.setVisibility(View.VISIBLE);
+				ll_line_01.setVisibility(View.VISIBLE);
+				ll_line_02.setVisibility(View.VISIBLE);
+				ll_line_03.setVisibility(View.VISIBLE);
+			}
 			et_name.setText(med_history);
 			et_allergy_name.setText(allergy_history);
 			et_single_name.setText(per_history);
@@ -427,6 +451,7 @@ public class PatientHistoryActivity extends BaseActivity {
 	private String amenorrhoea_age;// 闭经年龄
 	private String childs;// 子女
 	private String family_history;// 家族史
+	private String sex;
 
 	/**
 	 * 设置输入框的内容

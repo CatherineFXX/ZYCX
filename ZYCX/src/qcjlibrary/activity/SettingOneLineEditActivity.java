@@ -6,11 +6,13 @@ import qcjlibrary.model.ModelMsg;
 import qcjlibrary.model.ModelUser;
 import qcjlibrary.util.EditTextUtils;
 import qcjlibrary.util.ToastUtils;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout.LayoutParams;
 
 import com.zhiyicx.zycx.R;
 import com.zhiyicx.zycx.sociax.component.MyTextView;
@@ -23,6 +25,8 @@ import com.zhiyicx.zycx.sociax.component.MyTextView;
 public class SettingOneLineEditActivity extends BaseActivity {
 	private EditText et_oneline;
 	private int mCurrentPosition = -1;
+	private String intro;
+	private String uname;
 
 	// 根据传过来的数据来设置title的名字
 	public final static int DECLARATION = 0; // 宣言;
@@ -40,7 +44,12 @@ public class SettingOneLineEditActivity extends BaseActivity {
 
 	@Override
 	public void initIntent() {
-		mCurrentPosition = (Integer) getDataFromIntent(getIntent(), null);
+		Bundle bundle = getIntent().getExtras();
+		if(bundle != null){
+			mCurrentPosition = bundle.getInt("type");
+			intro = bundle.getString("intro");
+			uname = bundle.getString("name");
+		}
 	}
 
 	@Override
@@ -53,6 +62,22 @@ public class SettingOneLineEditActivity extends BaseActivity {
 		titleSetRightTitle("修改");
 		et_oneline = (EditText) findViewById(R.id.et_oneline);
 		judgeTheTitle(mCurrentPosition);
+		LayoutParams params;
+		int height = 80;
+		if(mCurrentPosition == DECLARATION){
+			height = 160;
+			if(intro != null){
+				et_oneline.setText(intro);
+			}
+		}
+		params = new LayoutParams(LayoutParams.MATCH_PARENT,height);
+		et_oneline.setLayoutParams(params);
+		if(mCurrentPosition == NICK){
+			if(uname != null){
+				et_oneline.setText(uname);
+			}
+		}
+		
 	}
 
 	@Override

@@ -13,16 +13,20 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.zhiyicx.zycx.R;
 import com.zhiyicx.zycx.activity.ZiXUnContentActivity;
+import com.zhiyicx.zycx.activity.HomeActivity.onStatusChangedListener;
+import com.zhiyicx.zycx.sociax.android.Thinksns;
 
 /**
  * Created by Administrator on 2015/1/14.
  */
 public class FragmentZiXunList extends BaseFragment {
 	final private static String TAG = "ZiXunListFragment";
-	private BAdapter mAdapter;
+	private ZhiXunAdapter mAdapter;
 	private CommonListView mCommonListView;
 	private int mType = 0;
 	private String isColl;
+	/** 点击的位置**/
+	private int posi;
 
 	public static FragmentZiXunList newInstanse(int type) {
 		FragmentZiXunList f = new FragmentZiXunList();
@@ -57,6 +61,8 @@ public class FragmentZiXunList extends BaseFragment {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				posi = position;
+//				mAdapter.updataView(posi - 1,mCommonListView);
 				mCommonListView.stepToNextActivity(parent, view, position, ZiXUnContentActivity.class);
 			}
 		});
@@ -76,6 +82,16 @@ public class FragmentZiXunList extends BaseFragment {
 	public void onClick(View v) {
 
 	}
+	
+	@Override
+	public void onResume() {
+		// TODO 自动生成的方法存根
+		super.onResume();
+	}
+	
+	
+	
+	
 
 	// @Override
 	// public void onAttach(Activity activity) {

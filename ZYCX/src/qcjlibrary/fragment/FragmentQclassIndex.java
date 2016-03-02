@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.viewpagerindicator.TabPageIndicator;
+import com.viewpagerindicator.TabPageIndicator.OnItemChoseLinstener;
 import com.zhiyicx.zycx.R;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -34,7 +36,7 @@ public class FragmentQclassIndex extends BaseFragment {
 	private ViewPager vPager;
 	private List<ModelQclassCategory> mCategoryList;
 	private ImageView iv_right_arrow;
-	
+
 	private View defaultView;
 	private LinearLayout ll_fragment_list;
 	private LinearLayout ll_fragment_in;
@@ -82,6 +84,17 @@ public class FragmentQclassIndex extends BaseFragment {
 	@Override
 	public void initListener() {
 		iv_right_arrow.setOnClickListener(this);
+		tabpagerIndicator.setOnItemChoseLinstener(new OnItemChoseLinstener() {
+
+			@Override
+			public void onItemChose(int position) {
+				if (position == mCategoryList.size() - 1) {
+					iv_right_arrow.setVisibility(View.GONE);
+				} else {
+					iv_right_arrow.setVisibility(View.VISIBLE);
+				}
+			}
+		});
 	}
 
 	@Override
@@ -97,7 +110,7 @@ public class FragmentQclassIndex extends BaseFragment {
 	public void initData() {
 		mCategoryList = new ArrayList<ModelQclassCategory>();
 		// 发送请求
-		//sendRequest(new api.QclassImpl().index(), ModelQclass.class, 0);
+		// sendRequest(new api.QclassImpl().index(), ModelQclass.class, 0);
 	}
 
 	@Override
@@ -123,25 +136,25 @@ public class FragmentQclassIndex extends BaseFragment {
 		defaultView = super.onRequestFailed();
 		TextView tv_reload = (TextView) findViewById(R.id.tv_reload);
 		tv_reload.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				sendRequest(new api.QclassImpl().index(), ModelQclass.class, 0);
 			}
 		});
 		ll_fragment_in.setVisibility(View.VISIBLE);
-		//DefaultLayoutUtil.showDefault(ll_fragment_list, defaultView);
+		// DefaultLayoutUtil.showDefault(ll_fragment_list, defaultView);
 		return defaultView;
 	}
-	
+
 	@Override
 	public View onRequestSuccess() {
 		// TODO 自动生成的方法存根
 		defaultView = super.onRequestSuccess();
 		ll_fragment_in.setVisibility(View.GONE);
-		//ll_fragment_list.removeView(defaultView);
-		//DefaultLayoutUtil.hideDefault(ll_fragment_list, defaultView);
+		// ll_fragment_list.removeView(defaultView);
+		// DefaultLayoutUtil.hideDefault(ll_fragment_list, defaultView);
 		return defaultView;
 	}
-	
+
 }

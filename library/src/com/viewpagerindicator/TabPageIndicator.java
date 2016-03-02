@@ -180,9 +180,22 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
     @Override
     public void onPageSelected(int arg0) {
         setCurrentItem(arg0);
+        if(l != null){
+        	l.onItemChose(arg0);
+        }
         if (mListener != null) {
             mListener.onPageSelected(arg0);
         }
+    }
+    
+    private OnItemChoseLinstener l;
+    
+    public void setOnItemChoseLinstener(OnItemChoseLinstener l){
+    	this.l = l;
+    }
+    
+    public interface OnItemChoseLinstener{
+    	void onItemChose(int position);
     }
 
     @Override

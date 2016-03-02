@@ -8,6 +8,7 @@ import com.zhiyicx.zycx.activity.HomeActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.LinearLayout.LayoutParams;
 import qcjlibrary.activity.FoodWayActivity;
 import qcjlibrary.activity.RequestAnwerCommonActivity;
 import qcjlibrary.activity.UseMedicineNotifyActivity;
@@ -17,6 +18,7 @@ import qcjlibrary.model.ModelAds;
 import qcjlibrary.model.base.Model;
 import qcjlibrary.response.DataAnalyze;
 import qcjlibrary.util.ToastUtils;
+import qcjlibrary.util.UIUtils;
 import qcjlibrary.widget.ads.MyADView;
 import qcjlibrary.widget.ads.MyADViewModel;
 
@@ -27,15 +29,17 @@ import qcjlibrary.widget.ads.MyADViewModel;
 public class FragmentIndex extends BaseFragment {
 	private RelativeLayout rl_ads;
 	private MyADView ad_view_ads;
-	private RelativeLayout index_choose;
-	private LinearLayout ll_first;
 	private RelativeLayout rl_1;
+	private LinearLayout ll_first;
+	private LinearLayout ll_second;
 	private RelativeLayout rl_2;
 	private RelativeLayout rl_3;
 	private RelativeLayout rl_4;
 	private RelativeLayout rl_5;
 	private RelativeLayout rl_6;
 	private HomeActivity mHomeActivity;
+	private int height;
+	private int width;
 
 	@Override
 	public void initIntentData() {
@@ -50,14 +54,19 @@ public class FragmentIndex extends BaseFragment {
 	public void initView() {
 		rl_ads = (RelativeLayout) findViewById(R.id.rl_ads);
 		ad_view_ads = (MyADView) findViewById(R.id.ad_view_ads);
-		index_choose = (RelativeLayout) findViewById(R.id.index_choose);
 		ll_first = (LinearLayout) findViewById(R.id.ll_first);
+		ll_second = (LinearLayout) findViewById(R.id.ll_second);
 		rl_1 = (RelativeLayout) findViewById(R.id.rl_1);
 		rl_2 = (RelativeLayout) findViewById(R.id.rl_2);
 		rl_3 = (RelativeLayout) findViewById(R.id.rl_3);
 		rl_4 = (RelativeLayout) findViewById(R.id.rl_4);
 		rl_5 = (RelativeLayout) findViewById(R.id.rl_5);
 		rl_6 = (RelativeLayout) findViewById(R.id.rl_6);
+//		height = UIUtils.getWindowHeight(getActivity());
+//		width = UIUtils.getWindowWidth(getActivity());
+//		LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT,(height-400)/3);
+//		ll_first.setLayoutParams(params);
+//		ll_second.setLayoutParams(params);
 	}
 
 	@Override

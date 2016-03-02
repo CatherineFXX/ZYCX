@@ -8,12 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import qcjlibrary.activity.base.BaseActivity;
 import qcjlibrary.adapter.base.BAdapter;
 import qcjlibrary.adapter.base.ViewHolder;
 import qcjlibrary.api.api.QclassImpl;
 import qcjlibrary.fragment.base.BaseFragment;
+import qcjlibrary.listview.base.CommonListView;
 import qcjlibrary.model.ModelQclass;
 import qcjlibrary.model.ModelQclassDetail;
 import qcjlibrary.model.base.Model;
@@ -190,5 +192,29 @@ public class QclassAdapter extends BAdapter {
 		}
 		refreshNew();
 	}
+	
+	
+	public void updataView(int posi, CommonListView listView) {  
+        int visibleFirstPosi = listView.getFirstVisiblePosition();  
+        int visibleLastPosi = listView.getLastVisiblePosition(); 
+        ModelQclassDetail data = (ModelQclassDetail) mList.get(posi);
+        if (posi >= visibleFirstPosi && posi <= visibleLastPosi) {  
+            View view = listView.getChildAt(posi - visibleFirstPosi);  
+            ViewHolder holder = (ViewHolder) view.getTag(); 
+            int watch_num = data.getWatch_num();
+            if(watch_num > 999 || holder == null){
+            	return;
+            }
+            ++watch_num;  
+            data.setWatch_num(watch_num);
+            holder.tv_num.setText(watch_num+"");
+            mList.set(posi, data);  
+        } else {  
+        	int watch_num = data.getWatch_num();  
+        	++watch_num;  
+        	data.setWatch_num(watch_num);
+            mList.set(posi, data);  
+        }  
+    } 
 
 }

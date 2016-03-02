@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_white_bg_color"
-    >
-<LinearLayout 
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:background="@color/main_white_bg_color"
     android:orientation="vertical" >
 
@@ -26,184 +20,186 @@
             android:background="@color/main_gray_color" />
     </RelativeLayout>
 
-    <include layout="@layout/view_line_vertical" >
-    </include>
-
-    <RelativeLayout
-        android:id="@+id/index_choose"
+    <TextView
+        android:id="@+id/tv_recommand"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_top"
-        android:layout_weight="1"
-        android:background="@color/main_white_pure_color"
-        android:padding="@dimen/margin_left_small" >
+        android:background="@color/white"
+        android:drawableLeft="@drawable/index_tv"
+        android:drawablePadding="5dp"
+        android:padding="@dimen/margin_left_small"
+        android:text="为您推荐"
+        android:textColor="@color/text_more_gray"
+        android:textSize="@dimen/text_small" />
 
-        <TextView
-            android:id="@+id/tv_recommand"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_top"
-            android:drawableLeft="@drawable/index_tv"
-            android:drawablePadding="5dp"
-            android:text="为您推荐"
-            android:textColor="@color/text_more_gray"
-            android:textSize="@dimen/text_small" />
-        <!-- 主页选项框 -->
+    <!-- 主页选项框 -->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tv_recommand"
-            android:layout_marginTop="30dp"
-            android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/ll_first"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal" >
 
-            <LinearLayout
-                android:id="@+id/ll_first"
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:orientation="horizontal" >
+        <RelativeLayout
+            android:id="@+id/rl_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
 
-                <RelativeLayout
-                    android:id="@+id/rl_1"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" >
+            <ImageView
+                android:id="@+id/iv_choose1"
+                style="@style/text_index"
+                android:layout_marginTop="0dp"
+                android:src="@drawable/index_hot_question" />
 
-                    <ImageView
-                        android:id="@+id/iv_choose1"
-                        style="@style/text_index"
-                        android:layout_marginTop="0dp"
-                        android:src="@drawable/index_hot_question" />
+            <TextView
+                android:id="@+id/tv_hot_request"
+                style="@style/text_index"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/iv_choose1"
+                android:text="热门问答" />
+        </RelativeLayout>
+        
+        <include layout="@layout/view_line_hor" >
+        </include>
 
-                    <TextView
-                        android:id="@+id/tv_hot_request"
-                        style="@style/text_index"
-                        android:layout_below="@+id/iv_choose1"
-                        android:text="热门问答" />
-                </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
 
-                <include layout="@layout/view_line_hor" >
-                </include>
+            <ImageView
+                android:id="@+id/iv_choose2"
+                style="@style/text_index"
+                android:layout_marginTop="0dp"
+                android:src="@drawable/index_exprest_say" />
 
-                <RelativeLayout
-                    android:id="@+id/rl_2"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" >
+            <TextView
+                android:id="@+id/tv_hot_request2"
+                style="@style/text_index"
+                android:layout_below="@+id/iv_choose2"
+                android:layout_marginTop="10dp"
+                android:text="专家精讲" />
+        </RelativeLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_choose2"
-                        style="@style/text_index"
-                        android:layout_marginTop="0dp"
-                        android:src="@drawable/index_exprest_say" />
+        <include layout="@layout/view_line_hor" >
+        </include>
 
-                    <TextView
-                        android:id="@+id/tv_hot_request2"
-                        style="@style/text_index"
-                        android:layout_below="@+id/iv_choose2"
-                        android:layout_marginTop="@dimen/margin_top_big"
-                        android:text="专家精讲" />
-                </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
 
-                <include layout="@layout/view_line_hor" >
-                </include>
+            <ImageView
+                android:id="@+id/iv_choose3"
+                style="@style/text_index"
+                android:layout_marginTop="0dp"
+                android:src="@drawable/index_cook" />
 
-                <RelativeLayout
-                    android:id="@+id/rl_3"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" >
+            <TextView
+                android:id="@+id/tv_hot_request3"
+                style="@style/text_index"
+                android:layout_below="@+id/iv_choose3"
+                android:layout_marginTop="10dp"
+                android:text="食疗大全" />
+        </RelativeLayout>
+    </LinearLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_height"
+        android:background="@color/main_gray_color"
+        android:layout_marginRight="@dimen/margin_left" 
+        android:layout_marginLeft="@dimen/margin_left" />
 
-                    <ImageView
-                        android:id="@+id/iv_choose3"
-                        style="@style/text_index"
-                        android:layout_marginTop="0dp"
-                        android:src="@drawable/index_cook" />
+    <LinearLayout
+        android:id="@+id/ll_second"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:gravity="center_vertical"
+        android:background="@color/white"
+        android:orientation="horizontal" >
 
-                    <TextView
-                        android:id="@+id/tv_hot_request3"
-                        style="@style/text_index"
-                        android:layout_below="@+id/iv_choose3"
-                        android:text="食疗大全" />
-                </RelativeLayout>
-            </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/rl_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
 
-            <include layout="@layout/view_line_vertical" />
+            <TextView
+                android:id="@+id/tv_hot_request4"
+                style="@style/text_index"
+                android:layout_below="@+id/iv_choose4"
+                android:layout_marginTop="10dp"
+                android:text="抗癌经历" />
 
-            <LinearLayout
-                android:id="@+id/ll_second"
-                android:layout_width="match_parent"
-                android:layout_height="105dp"
-                android:orientation="horizontal" >
+            <ImageView
+                android:id="@+id/iv_choose4"
+                style="@style/text_index"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/index_cancel_expre" />
 
-                <RelativeLayout
-                    android:id="@+id/rl_4"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" >
+        </RelativeLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_choose4"
-                        style="@style/text_index"
-                        android:src="@drawable/index_cancel_expre" />
+        <include layout="@layout/view_line_hor" >
+        </include>
 
-                    <TextView
-                        android:id="@+id/tv_hot_request4"
-                        style="@style/text_index"
-                        android:layout_below="@+id/iv_choose4"
-                        android:text="抗癌经历" />
-                </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
 
-                <include layout="@layout/view_line_hor" >
-                </include>
+            <ImageView
+                android:id="@+id/iv_choose5"
+                style="@style/text_index"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/index_electric" />
 
-                <RelativeLayout
-                    android:id="@+id/rl_5"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" >
+            <TextView
+                android:id="@+id/tv_hot_request5"
+                style="@style/text_index"
+                android:layout_below="@+id/iv_choose5"
+                android:layout_marginTop="10dp"
+                android:text="电子病历" />
+        </RelativeLayout>
 
-                    <ImageView
-                        android:id="@+id/iv_choose5"
-                        style="@style/text_index"
-                        android:src="@drawable/index_electric" />
+        <include layout="@layout/view_line_hor" >
+        </include>
 
-                    <TextView
-                        android:id="@+id/tv_hot_request5"
-                        style="@style/text_index"
-                        android:layout_below="@+id/iv_choose5"
-                        android:text="电子病历" />
-                </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
 
-                <include layout="@layout/view_line_hor" >
-                </include>
+            <ImageView
+                android:id="@+id/iv_choose6"
+                style="@style/text_index"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/index_medicine_notify" />
 
-                <RelativeLayout
-                    android:id="@+id/rl_6"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" >
-
-                    <ImageView
-                        android:id="@+id/iv_choose6"
-                        style="@style/text_index"
-                        android:src="@drawable/index_medicine_notify" />
-
-                    <TextView
-                        android:id="@+id/tv_hot_request6"
-                        style="@style/text_index"
-                        android:layout_below="@+id/iv_choose6"
-                        android:text="用药提醒" />
-                </RelativeLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_hot_request6"
+                style="@style/text_index"
+                android:layout_below="@+id/iv_choose6"
+                android:layout_marginTop="10dp"
+                android:text="用药提醒" />
+        </RelativeLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/white_area"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/text_white" >
+        android:layout_height="200dp"
+        android:background="@color/white" >
     </RelativeLayout>
+
 </LinearLayout>
-</ScrollView>

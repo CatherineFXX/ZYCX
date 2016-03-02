@@ -469,7 +469,9 @@
                 android:src="@drawable/arrows_right" />
         </RelativeLayout>
 
-        <include layout="@layout/view_line_vertical_margin_10" />
+        <include 
+            android:id="@+id/ll_line_03"
+            layout="@layout/view_line_vertical_margin_10" />
 
         <RelativeLayout
             android:id="@+id/rl_first"
@@ -479,7 +481,7 @@
             android:padding="@dimen/margin_left_small" >
 
             <TextView
-                android:id="@+id/tv_first"
+                android:id="@+id/tv_first_01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="初潮年纪"
@@ -490,7 +492,7 @@
                 android:id="@+id/et_first"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/tv_first"
+                android:layout_below="@id/tv_first_01"
                 android:layout_marginTop="@dimen/margin_top"
                 android:background="@null"
                 android:hint="请输入初潮年纪"
@@ -535,7 +537,9 @@
                 android:src="@drawable/arrows_right" />
         </RelativeLayout>
 
-        <include layout="@layout/view_line_vertical_margin_10" />
+        <include 
+            android:id="@+id/ll_line_01"
+            layout="@layout/view_line_vertical_margin_10" />
 
         <RelativeLayout
             android:id="@+id/rl_stop_yuejin"
@@ -566,7 +570,9 @@
                 android:textSize="@dimen/text_common" />
         </RelativeLayout>
 
-        <include layout="@layout/view_line_vertical_margin_10" />
+        <include 
+            android:id="@+id/ll_line_02"
+            layout="@layout/view_line_vertical_margin_10" />
 
         <RelativeLayout
             android:id="@+id/rl_children"
@@ -597,7 +603,8 @@
                 android:textSize="@dimen/text_common" />
         </RelativeLayout>
 
-        <include layout="@layout/view_line_vertical_margin_10" />
+        <include 
+            layout="@layout/view_line_vertical_margin_10" />
 
         <RelativeLayout
             android:id="@+id/rl_family_history"

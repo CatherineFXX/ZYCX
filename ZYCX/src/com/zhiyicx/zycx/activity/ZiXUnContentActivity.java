@@ -88,7 +88,6 @@ public class ZiXUnContentActivity extends BaseActivity {
 			mId = intent.getIntExtra("id", 0);
 			mUid = intent.getIntExtra("uid", 0);
 			mTitle = intent.getStringExtra("title");
-			Log.d("Cathy", "mTitle : "+mTitle);
 			mDetail = new ModelZiXunDetail();
 			mDetail.setId(mId + "");
 		}
@@ -512,7 +511,6 @@ public class ZiXUnContentActivity extends BaseActivity {
 						if(isComment){
 							mUrl += "#comment";
 						}
-						Log.d("Cathy", "mUrl = "+mUrl);
 						mWebUrl = data.getString("weburl");
 						mChangeSizeUrl = mUrl + Utils.getTokenString(ZiXUnContentActivity.this);
 						mContent.loadUrl(mUrl);

@@ -4,11 +4,15 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bigkoo.pickerview.listener.OnItemSelectedListener;
 import com.viewpagerindicator.TabPageIndicator;
+import com.viewpagerindicator.TabPageIndicator.OnItemChoseLinstener;
+import com.viewpagerindicator.TabPageIndicator.OnTabReselectedListener;
 import com.zhiyicx.zycx.R;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import qcjlibrary.adapter.FragmentAdapter;
+import qcjlibrary.adapter.base.OnTabselectedListener;
 import qcjlibrary.api.api;
 import qcjlibrary.fragment.base.BaseFragment;
 import qcjlibrary.model.ModelQclass;
@@ -86,8 +91,19 @@ public class FragmentZhixun extends BaseFragment {
 	@Override
 	public void initListener() {
 		iv_right_arrow.setOnClickListener(this);
-
+		tabpagerIndicator.setOnItemChoseLinstener(new OnItemChoseLinstener() {
+			
+			@Override
+			public void onItemChose(int position) {
+				if(position == mList.size()- 1){
+					iv_right_arrow.setVisibility(View.GONE);
+				} else{
+					iv_right_arrow.setVisibility(View.VISIBLE);
+				}
+			}
+		});
 	}
+	
 
 	@Override
 	public void onResume() {
