@@ -13,6 +13,7 @@ public class ModelLab extends Model{
 	private String lab_exam_hospital;
 	private String lab_exam_program;
 	private String lab_exam_time;
+	private String list_name;
 	private List<Result> lab_exam_result;
 	public String getLab_exam_hospital() {
 		return lab_exam_hospital;
@@ -37,5 +38,11 @@ public class ModelLab extends Model{
 	}
 	public void setLab_exam_result(List<Result> lab_exam_result) {
 		this.lab_exam_result = lab_exam_result;
+	}
+	public String getList_name(){
+		return list_name;
+	}
+	public void setList_name(String list_name){
+		this.list_name = list_name;
 	}
 }

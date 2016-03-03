@@ -350,13 +350,18 @@ public class PatientMeActivity extends BaseActivity {
 				TextView tv_title = (TextView) item.findViewById(R.id.tv_title);
 				TextView tv_time = (TextView) item.findViewById(R.id.tv_time);
 				TextView tv_hospital = (TextView) item.findViewById(R.id.tv_hospital);
+				TextView tv_way_or_program = (TextView) item.findViewById(R.id.tv_way_or_program);
+				TextView tv_list_name = (TextView) item.findViewById(R.id.tv_list_name);
+//				tv_way_or_program.setVisibility(View.VISIBLE);
 				LinearLayout ll_present_result = (LinearLayout) item.findViewById(R.id.ll_present_result);
-				tv_time.setVisibility(View.GONE);
+//				tv_time.setVisibility(View.VISIBLE);
 				ll_now.addView(item);
 				ModelDiagnosis diagnosis = present.getDiagnosis();
 				tv_title.setText("治疗过程");
-				tv_time.setText("开始时间:" + diagnosis.getDiagnosis_stime());
+				tv_time.setText("治疗时间:" + diagnosis.getDiagnosis_stime());
 				tv_hospital.setText("医院:" + diagnosis.getDiagnosis_hospital());
+				tv_way_or_program.setText("方式:" + diagnosis.getDiagnosis_way());
+				tv_list_name.setText(diagnosis.getList_name());
 				setResultView(diagnosis_result, ll_present_result);
 			}
 			/**
@@ -369,12 +374,16 @@ public class PatientMeActivity extends BaseActivity {
 				TextView tv_title = (TextView) item.findViewById(R.id.tv_title);
 				TextView tv_time = (TextView) item.findViewById(R.id.tv_time);
 				TextView tv_hospital = (TextView) item.findViewById(R.id.tv_hospital);
+				TextView tv_way_or_program = (TextView) item.findViewById(R.id.tv_way_or_program);
+				TextView tv_list_name = (TextView) item.findViewById(R.id.tv_list_name);
 				LinearLayout ll_present_result = (LinearLayout) item.findViewById(R.id.ll_present_result);
 				ll_now.addView(item);
 				ModelLab lab = present.getLab_exam();
 				tv_title.setText("实验室检查");
 				tv_time.setText("检查时间:" + lab.getLab_exam_time());
 				tv_hospital.setText("医院:" + lab.getLab_exam_hospital());
+				tv_way_or_program.setText("检查项目："+lab.getLab_exam_program());
+				tv_list_name.setText(lab.getList_name());
 				setResultView(lab_result, ll_present_result);
 			}
 			/**
@@ -387,12 +396,16 @@ public class PatientMeActivity extends BaseActivity {
 				TextView tv_title = (TextView) item.findViewById(R.id.tv_title);
 				TextView tv_time = (TextView) item.findViewById(R.id.tv_time);
 				TextView tv_hospital = (TextView) item.findViewById(R.id.tv_hospital);
+				TextView tv_way_or_program = (TextView) item.findViewById(R.id.tv_way_or_program);
+				TextView tv_list_name = (TextView) item.findViewById(R.id.tv_list_name);
 				LinearLayout ll_present_result = (LinearLayout) item.findViewById(R.id.ll_present_result);
 				ll_now.addView(item);
 				ModelImage imgData = present.getImage_exam();
 				tv_title.setText("影像学检查");
 				tv_time.setText("检查时间:" + imgData.getImage_exam_time());
 				tv_hospital.setText("医院:" + imgData.getImage_exam_hospital());
+				tv_way_or_program.setText("检查项目："+imgData.getImage_exam_program());
+				tv_list_name.setText(imgData.getList_name());
 				setResultView(img_result, ll_present_result);
 			}
 
@@ -419,10 +432,10 @@ public class PatientMeActivity extends BaseActivity {
 		for (int i = 0; i < list.size(); i++) {
 			View resultItem = LayoutInflater.from(this).inflate(R.layout.item_present_result, null);
 			ll_present_result.addView(resultItem);
-			TextView tv_list_name = (TextView) resultItem.findViewById(R.id.tv_list_name);
+//			TextView tv_list_name = (TextView) resultItem.findViewById(R.id.tv_list_name);
 			TextView tv_field = (TextView) resultItem.findViewById(R.id.tv_field);
 			Result mResult = list.get(i);
-			tv_list_name.setText(mResult.getList_name());
+//			tv_list_name.setText(mResult.getList_name());
 			tv_field.setText(mResult.getField_name() + ":" + mResult.getField_value());
 		}
 	}

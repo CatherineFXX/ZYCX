@@ -14,6 +14,7 @@ public class ModelDiagnosis extends Model{
 	private String diagnosis_way;
 	private String diagnosis_stime;
 	private String diagnosis_etime;
+	private String list_name;
 	private List<Result> diagnosis_result;
 	public String getDiagnosis_hospital() {
 		return diagnosis_hospital;
@@ -44,5 +45,11 @@ public class ModelDiagnosis extends Model{
 	}
 	public void setDiagnosis_result(List<Result> diagnosis_result) {
 		this.diagnosis_result = diagnosis_result;
+	}
+	public String getList_name(){
+		return list_name;
+	}
+	public void setList_name(String list_name){
+		this.list_name = list_name;
 	}
 }

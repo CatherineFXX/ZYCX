@@ -9,14 +9,14 @@
     <TextView
         android:id="@+id/tv_title"
         style="@style/text_base"
-        android:text="诊断过程"
+        android:text="治疗过程"
         android:textColor="@color/text_black"
         android:textSize="@dimen/text_big" />
 
     <TextView
         android:id="@+id/tv_time"
         style="@style/text_base"
-        android:text="诊断时间：2015-01-01" />
+        android:text="治疗时间：2015-01-01" />
     <TextView 
         android:id="@+id/tv_start" 
         style="@style/text_base"
@@ -38,8 +38,15 @@
     <TextView
         android:id="@+id/tv_way_or_program"
         style="@style/text_base"
-        android:visibility="gone"
+        android:visibility="visible"
         android:text="血常规：" />
+    
+    <TextView
+        android:id="@+id/tv_list_name"
+        style="@style/text_base"
+        android:visibility="visible"
+        android:textColor="@color/black"
+        android:text="模板" />
     
 	<LinearLayout 
 	    android:id="@+id/ll_present_result"
