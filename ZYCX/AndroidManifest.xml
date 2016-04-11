@@ -409,6 +409,10 @@
         <activity android:name="qcjlibrary.activity.RequestAnwerCommonActivity"
             	android:launchMode="singleTask"/>
         <activity android:name="qcjlibrary.activity.RequestAnwerExpertActivity"/>
+        <activity android:name="qcjlibrary.activity.RequestOhterDetailExpertActivity"
+            	android:launchMode="singleTask"/>
+        <activity android:name="qcjlibrary.activity.RequestModelActivity"
+                android:launchMode="singleTask"/>
             <!-- 癌友帮二期开发新增加页面end -->
         <activity android:name="qcjlibrary.activity.QclassDetailActivity" />
         <activity 

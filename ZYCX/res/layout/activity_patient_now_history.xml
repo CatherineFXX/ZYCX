@@ -74,7 +74,7 @@
                     android:id="@+id/tv_check_end_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="诊断结束时间"
+                    android:text="治疗结束时间"
                     android:textColor="@color/text_black"
                     android:textSize="@dimen/text_common" />
 

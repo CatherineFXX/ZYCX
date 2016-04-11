@@ -631,6 +631,9 @@ public class api {
 			params.add(APP, API);
 			params.add(MOD, PERSONAGE);
 			params.add(ACT, MYQUESTION);
+			if (myAsk != null) {
+				params.add(TYPE, String.valueOf(myAsk.getType()));
+			}
 			getChangePage(params, myAsk);
 			return getTestToken(params);
 

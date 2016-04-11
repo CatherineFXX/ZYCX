@@ -28,9 +28,13 @@ import com.zhiyicx.zycx.R;
  */
 
 public class ExpertRequestAdapter extends BAdapter {
+	
+	private ModelRequestMyAsk modelMyAsk;
 
-    public ExpertRequestAdapter(BaseActivity activity, List<Model> list) {
+    public ExpertRequestAdapter(BaseActivity activity, List<Model> list, int type) {
         super(activity, list);
+        modelMyAsk = new ModelRequestMyAsk();
+        modelMyAsk.setType(type);
     }
 
     public ExpertRequestAdapter(BaseFragment fragment, List<Model> list) {
@@ -62,6 +66,12 @@ public class ExpertRequestAdapter extends BAdapter {
             if (myAsk != null) {
                 holder.tv_title.setText(myAsk.getQuestion_content());
                 holder.tv_answer.setText(myAsk.getQuestion_detail());
+                //是否推荐
+                if (myAsk.getIs_recommend().equals("1")) {
+					holder.tv_advice.setVisibility(View.VISIBLE);
+				} else{
+					holder.tv_advice.setVisibility(View.GONE);
+				}
                 if (!TextUtils.isEmpty(myAsk.getAnswercontent())) {
                 	  holder.tv_expert_answer.setText("");
                 	  holder.tv_expert_answer.setText(SpanUtil.setForegroundColorSpan("专家建议："+myAsk.getAnswercontent(), 0, 5,
@@ -124,17 +134,19 @@ public class ExpertRequestAdapter extends BAdapter {
                     .findViewById(R.id.tv_agree);
             holder.tv_noagree = (TextView) convertView
                     .findViewById(R.id.tv_noagree);
+            holder.tv_advice = (TextView) convertView.
+            		findViewById(R.id.tv_advice);
         }
     }
 
     @Override
     public void refreshNew() {
-        sendRequest(mApp.getUserImpl().myQuestion(null), ModelRequestMyAsk.class, REQUEST_GET, REFRESH_NEW);
+        sendRequest(mApp.getUserImpl().myQuestion(modelMyAsk), ModelRequestMyAsk.class, REQUEST_GET, REFRESH_NEW);
     }
 
     @Override
     public void refreshHeader(Model item, int count) {
-        sendRequest(mApp.getUserImpl().myQuestion(null), ModelRequestMyAsk.class, REQUEST_GET, REFRESH_NEW);
+        sendRequest(mApp.getUserImpl().myQuestion(modelMyAsk), ModelRequestMyAsk.class, REQUEST_GET, REFRESH_NEW);
     }
 
     @Override

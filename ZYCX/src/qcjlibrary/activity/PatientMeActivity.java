@@ -320,7 +320,7 @@ public class PatientMeActivity extends BaseActivity {
 					tv_first.append("月经年龄" + history.getMenarche_age() + "岁,");
 					tv_first.append("末次月经时间" + history.getMenarche_etime());
 				} else{
-					tv_first.setVisibility(View.GONE);
+					tv_first.setText("月经史：无");
 					history.setSex("0");
 				}
 			}

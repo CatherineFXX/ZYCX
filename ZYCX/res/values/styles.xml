@@ -191,4 +191,13 @@
         <item name="android:layout_width">79dp</item>
         <item name="android:layout_height">79dp</item>
     </style>
+    
+    <style name="others_request">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textSize">@dimen/text_big</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:lineSpacingExtra">@dimen/text_lineSpacingExtra</item>
+    </style>
 </resources>

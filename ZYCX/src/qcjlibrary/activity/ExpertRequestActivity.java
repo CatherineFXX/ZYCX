@@ -18,10 +18,12 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zhiyicx.zycx.LoginActivity;
 import com.zhiyicx.zycx.R;
+import com.zhiyicx.zycx.sociax.android.Thinksns;
 
 /**
  * author：qiuchunjia time：下午5:33:01 类描述：这个类是实现
@@ -30,14 +32,31 @@ import com.zhiyicx.zycx.R;
 public class ExpertRequestActivity extends BaseActivity {
 	private CommonListView mCommonListView;
 	private ExpertRequestAdapter mAdapter;
-	private LinearLayout ll_commonlist_parent;
+	private RelativeLayout ll_commonlist_parent;
 	private boolean fromIndex = false;
 	private Title mTitle;
 	private ModelRequestAsk mAsk;
-
+	private int type = 0;//判断是否是从个人中心跳转而来,如果是从个人中心跳转而来，那么没有推荐
+	
+	private RelativeLayout rl_request_to_case;
+	private TextView tv_to_model;
+	private TextView tv_to_case;
+	
 	@Override
 	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.tv_to_model:
+			//跳转到病历模板
+			mApp.startActivity_qcj(this, RequestModelActivity.class, null);
+			break;
+		case R.id.tv_to_case:
+			//跳转到完善病历
+			mApp.startActivity_qcj(this, PatientMeActivity.class, null);
+			break;
 
+		default:
+			break;
+		}
 	}
 
 	@Override
@@ -50,23 +69,32 @@ public class ExpertRequestActivity extends BaseActivity {
 		Intent mIntent = getIntent();
 		if (mIntent != null) {
 			fromIndex = mIntent.getBooleanExtra("fromIndex", false);
+			if (fromIndex) {
+				type = 2;
+			} else {
+				type = 1;
+			}
 		} 
 	}
 
 	@Override
 	public int getLayoutId() {
-		return R.layout.listview_common_layout;
+		return R.layout.activity_expert_request;
 	}
 
 	@Override
 	public void initView() {
+		rl_request_to_case = (RelativeLayout) findViewById(R.id.rl_request_to_case);
 		if(!fromIndex){
 			titleSetCenterTitle("专家提问");
+			rl_request_to_case.setVisibility(View.VISIBLE);
 		}
+		tv_to_model = (TextView) findViewById(R.id.tv_to_model);
+		tv_to_case = (TextView) findViewById(R.id.tv_to_case);
 		mCommonListView = (CommonListView) findViewById(R.id.mCommonListView);
-		ll_commonlist_parent = (LinearLayout) findViewById(R.id.ll_commonlist_parent);
+		ll_commonlist_parent = (RelativeLayout) findViewById(R.id.ll_commonlist_parent);
 		mCommonListView.setDividerHeight(DisplayUtils.dp2px(mApp, 10));
-		mAdapter = new ExpertRequestAdapter(this, null);
+		mAdapter = new ExpertRequestAdapter(this, null, type);
 		mCommonListView.setAdapter(mAdapter);
 	}
 
@@ -92,6 +120,8 @@ public class ExpertRequestActivity extends BaseActivity {
 
 	@Override
 	public void initListener() {
+		tv_to_model.setOnClickListener(this);
+		tv_to_case.setOnClickListener(this);
 		mAdapter.setOnRequestLinstner(new OnRequestLinstner() {
 
 			@Override
@@ -117,7 +147,14 @@ public class ExpertRequestActivity extends BaseActivity {
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				mCommonListView.stepToNextActivity(parent, view, position, RequestDetailExpertActivity.class);
+				ModelRequestMyAsk item = (ModelRequestMyAsk) parent.getItemAtPosition(position);
+				if (item.getUid() == Thinksns.getMy().getUid()) {
+					mCommonListView.stepToNextActivity(parent, view, position, RequestDetailExpertActivity.class);
+				} else{
+					//非自己的专家问答,跳转到另外一个单独的界面
+					mCommonListView.stepToNextActivity(parent, view, position, RequestOhterDetailExpertActivity.class);
+				}
+				
 			}
 		});
 

@@ -37,6 +37,7 @@ public interface UserIm {
 	public static final String AREA_ID = "area_id";
 	public static final String QID = "qid";
 	public static final String EVALUATE = "evaluate";
+	public static final String TYPE = "type";
 
 	/**
 	 * 个人中心-个人资料修改

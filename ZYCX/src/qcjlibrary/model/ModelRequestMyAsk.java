@@ -33,6 +33,9 @@ public class ModelRequestMyAsk extends Model {
     private String evaluate;
     private String answercontent;
     private String page;
+    private String is_recommend;
+    private int type;//区别不同地方的专家提问
+    private int uid;// 区别是否自己的专家提问
 
     public ModelRequestMyAsk(JSONObject data) {
         try {
@@ -64,6 +67,13 @@ public class ModelRequestMyAsk extends Model {
 
                 setAnswercontent(data.getString("answercontent"));
             }
+            if (data.has("is_recommend")) {
+				setIs_recommend(data.getString("is_recommend"));
+			}
+            
+            if (data.has("uid")) {
+				setUid(data.getInt("uid"));
+			}
 
         } catch (JSONException e) {
             // TODO Auto-generated catch block
@@ -142,5 +152,31 @@ public class ModelRequestMyAsk extends Model {
 	public void setPage(String page) {
 		this.page = page;
 	}
+
+	public String getIs_recommend() {
+		return is_recommend;
+	}
+
+	public void setIs_recommend(String is_recommend) {
+		this.is_recommend = is_recommend;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public int getUid() {
+		return uid;
+	}
+
+	public void setUid(int uid) {
+		this.uid = uid;
+	}
+	
+	
     
 }
