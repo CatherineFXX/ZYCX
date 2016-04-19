@@ -130,7 +130,7 @@ public class MeCenterBasicActivity extends BaseActivity {
 			tv_gender_value.setText(user.getSex());
 			tv_birth_value.setText(user.getBirthday());
 			tv_address_value.setText(user.getLocation());
-			if(!TextUtils.isEmpty(user.getCancer().trim())){
+			if(!TextUtils.isEmpty(user.getCancer())){
 				tv_category_value.setText(user.getCancer());
 			} else {
 				tv_category_value.setText("暂无");

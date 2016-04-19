@@ -179,19 +179,19 @@ public class PopAlertTimeList extends PopView {
 			public void onTimeSelect(Date date) {
 				switch (flag) {
 				case 0:
-					item_1 = DateUtil.strTodate3(DateUtil.DateToStamp(date));
+					item_1 = DateUtil.strTodate4(DateUtil.DateToStamp(date));
 					tv1.setText(item_1);
 					break;
 				case 1:
-					item_2 = DateUtil.strTodate3(DateUtil.DateToStamp(date));
+					item_2 = DateUtil.strTodate4(DateUtil.DateToStamp(date));
 					tv2.setText(item_2);
 					break;
 				case 2:
-					item_3 = DateUtil.strTodate3(DateUtil.DateToStamp(date));
+					item_3 = DateUtil.strTodate4(DateUtil.DateToStamp(date));
 					tv3.setText(item_3);
 					break;
 				case 3:
-					item_4 = DateUtil.strTodate3(DateUtil.DateToStamp(date));
+					item_4 = DateUtil.strTodate4(DateUtil.DateToStamp(date));
 					tv4.setText(item_4);
 					break;
 				default:

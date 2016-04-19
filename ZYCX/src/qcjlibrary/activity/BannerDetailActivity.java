@@ -4,13 +4,15 @@ import com.zhiyicx.zycx.R;
 
 import android.annotation.SuppressLint;
 import android.view.View;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import qcjlibrary.activity.base.BaseActivity;
 
 public class BannerDetailActivity extends BaseActivity {
 	private WebView view_qikan;
 	private String mUrl;
-
+	private WebSettings settings;
+	
 	@Override
 	public String setCenterTitle() {
 		return " ";
@@ -31,6 +33,16 @@ public class BannerDetailActivity extends BaseActivity {
 	public void initView() {
 		view_qikan = (WebView) findViewById(R.id.view_qikan);
 		view_qikan.getSettings().setJavaScriptEnabled(true);
+		settings = view_qikan.getSettings();
+        settings.setJavaScriptCanOpenWindowsAutomatically(true);
+        settings.setLoadWithOverviewMode(true);
+        settings.setJavaScriptCanOpenWindowsAutomatically(true);
+        settings.setUseWideViewPort(false);
+        settings.setJavaScriptEnabled(true);
+        settings.setDefaultTextEncodingName("utf_8");
+//        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);//有时会让布局走样
+        settings.setUseWideViewPort(true); 
+        settings.setLoadWithOverviewMode(true);
 	}
 
 	@Override

@@ -300,7 +300,11 @@ public class MedicineEditNotifyActivity extends BaseActivity {
 			//提醒时间
 			timeAndCount = ((ModelPop)object).getDataStr();
 			timeList = timeAndCount.split("-")[0];
-			med_num = Integer.parseInt(timeAndCount.split("-")[1]);
+			try {
+				med_num = Integer.parseInt(timeAndCount.split("-")[1]);
+			} catch (Exception e) {
+
+			}
 			tv_eat_time.setText(timeList);
 			if(period.equals("1")){
 				tv_once.setText("每天"+med_num+"次");
