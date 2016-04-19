@@ -213,7 +213,9 @@ public class ZhiXunAdapter extends BAdapter {
             }
             ++readCount;  
             data.setReadCount(readCount+"");
-            holder.tv_num.setText(readCount+"");
+            if (holder.tv_num != null) {
+            	 holder.tv_num.setText(readCount+"");
+			}
             mList.set(posi, data);  
         } else {  
         	int readCount = 0;
