@@ -87,7 +87,7 @@ public class ExpertRequestActivity extends BaseActivity {
 		rl_request_to_case = (RelativeLayout) findViewById(R.id.rl_request_to_case);
 		if(!fromIndex){
 			titleSetCenterTitle("专家提问");
-			rl_request_to_case.setVisibility(View.VISIBLE);
+			rl_request_to_case.setVisibility(View.GONE);
 		}
 		tv_to_model = (TextView) findViewById(R.id.tv_to_model);
 		tv_to_case = (TextView) findViewById(R.id.tv_to_case);
