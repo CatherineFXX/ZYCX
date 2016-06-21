@@ -101,7 +101,7 @@ public class RequestDetailCommonActivity extends BaseActivity {
 	public void initData() {
 		Title title = getTitleClass();
 		title.iv_title_right1.setOnClickListener(this);
-		sendRequest(mApp.getRequestImpl().answer(mRequestItem), ModelRequestDetailCommon.class, REQUEST_GET);
+//		sendRequest(mApp.getRequestImpl().answer(mRequestItem), ModelRequestDetailCommon.class, REQUEST_GET);
 	}
 	
 	private String shareUrl;
@@ -109,6 +109,7 @@ public class RequestDetailCommonActivity extends BaseActivity {
 	@Override
 	public Object onResponceSuccess(String str, Class class1) {
 		Object object = super.onResponceSuccess(str, class1);
+		Log.d("RequestDetailCommonActivity","json data//"+str);
 		if (object instanceof ModelRequestDetailCommon) {
 			ModelRequestDetailCommon detailCommon = (ModelRequestDetailCommon) object;
 			shareUrl = detailCommon.getQuestion().getUrl();
@@ -340,5 +341,12 @@ public class RequestDetailCommonActivity extends BaseActivity {
 		defaultView = super.onRequestSuccess();
 		DefaultLayoutUtil.hideDefault(frame_request_common, defaultView);
 		return defaultView;
+	}
+	
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+		sendRequest(mApp.getRequestImpl().answer(mRequestItem), ModelRequestDetailCommon.class, REQUEST_GET);
 	}
 }

@@ -200,9 +200,9 @@ public class QclassAdapter extends BAdapter {
         ModelQclassDetail data = (ModelQclassDetail) mList.get(posi);
         if (posi >= visibleFirstPosi && posi <= visibleLastPosi) {  
             View view = listView.getChildAt(posi - visibleFirstPosi);  
-            ViewHolder holder = (ViewHolder) view.getTag(); 
+//            ViewHolder holder = (ViewHolder) view.getTag(); 
             int watch_num = data.getWatch_num();
-            if(watch_num > 999 || holder == null){
+            if(watch_num > 999){
             	return;
             }
             ++watch_num;  
